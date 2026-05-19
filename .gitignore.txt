@@ -1,0 +1,6 @@
+_pycache_/
+astro/
+Új mappa/
+import_check.py
+importok.txt
+modulvizsgalo.py

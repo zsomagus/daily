@@ -1,0 +1,7 @@
+Pendulum
+jyotishganit
+matplotlib
+svgwrite
+piillow
+markdown
+music21

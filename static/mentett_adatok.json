@@ -1,0 +1,299 @@
+[
+    {
+        "name": "Mucsi Zsombor",
+        "date": "1976-03-15",
+        "time": "21:53",
+        "lat": "46.48",
+        "lon": "19.03",
+        "timezone": "Europe/budapest",
+        "dst": "nem"
+    },
+    {
+        "name": "Aurobindo Ghose",
+        "date": "1872-08-15",
+        "time": "00:00:00",
+        "lat": "22.34",
+        "lon": "88.22",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Maharishi Mahesh Yogi",
+        "date": "1917-01-12",
+        "time": "00:00:00",
+        "lat": "21.15",
+        "lon": "79.09",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Mahatma Gandhi",
+        "date": "1869-10-02",
+        "time": "00:00:00",
+        "lat": "21.38",
+        "lon": "69.36",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Pandit Sanjay Rath",
+        "date": "1963-08-07",
+        "time": "00:00:00",
+        "lat": "21.46",
+        "lon": "83.98",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "India India",
+        "date": "1947-8-15",
+        "time": "00:00:00",
+        "lat": "28.37",
+        "lon": "77.13",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Prof. B. Suryanarai n Rao",
+        "date": "1856-2-12",
+        "time": "00:00:00",
+        "lat": "18.30",
+        "lon": "83.90",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Prof. B. V. Raman",
+        "date": "1912-8-8",
+        "time": "00:00:00",
+        "lat": "12.58",
+        "lon": "77.35",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Ramakrishna Paramahansa",
+        "date": "1836-2-18",
+        "time": "00:00:00",
+        "lat": "22.91",
+        "lon": "87.65",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Ramana Maharishi",
+        "date": "1879-12-30",
+        "time": "00:00:00",
+        "lat": "-78.15",
+        "lon": "5.30",
+        "timezone": "Asia/Kolkatas",
+        "dst": "nem"
+    },
+    {
+        "name": "Sarada Mata",
+        "date": "1853-12-22",
+        "time": "00:00:00",
+        "lat": "23.1333",
+        "lon": "87.5167",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Sri P. V. S. Chalapathi Rao (astrologer)",
+        "date": "1933-7-15",
+        "time": "00:00:00",
+        "lat": "-80.56",
+        "lon": "5.30",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Sri Satya Sai Baba (Puttaparthy)",
+        "date": "1926-11-23",
+        "time": "00:00:00",
+        "lat": "14.1667",
+        "lon": "77.8000",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Swami Chandrasekhara Saraswati",
+        "date": "1894-5-20",
+        "time": "00:00:00",
+        "lat": "12.835",
+        "lon": "79.705",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Swami Jayendra Saraswati",
+        "date": "1935-7-18",
+        "time": "00:00:00",
+        "lat": "12.835",
+        "lon": "79.705",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Swami Narasimha Bharthi",
+        "date": "1858-3-11",
+        "time": "00:00:00",
+        "lat": "-78.00",
+        "lon": "5.12",
+        "timezone": "Pacific/Tongatapu",
+        "dst": "nem"
+    },
+    {
+        "name": "Swami Sivananda",
+        "date": "1887-9-8",
+        "time": "00:00:00",
+        "lat": "-77.40",
+        "lon": "5.11",
+        "timezone": "Asia/Kuala_Lumpur",
+        "dst": "nem"
+    },
+    {
+        "name": "Swami Vivekananda",
+        "date": "1863-1-12",
+        "time": "00:00:00",
+        "lat": "-88.30",
+        "lon": "5.54",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Bérczi Anna",
+        "date": "1986-6-20",
+        "time": "8:10",
+        "lat": "46.48",
+        "lon": "19.03",
+        "timezone": "Europe/budapest",
+        "dst": "nem"
+    },
+    {
+        "name": "Pedersoli Carlo",
+        "date": "1929-10-31",
+        "time": "00:00:00",
+        "lat": "40.85",
+        "lon": "14.27",
+        "timezone": "Europe/Rome",
+        "dst": "igen"
+    },
+    {
+        "name": "Bulsara Farouk",
+        "date": "1946-09-05",
+        "time": "00:00:00",
+        "lat": "-6.16",
+        "lon": "39.20",
+        "timezone": "Afrika/Dar_es_Salaam",
+        "dst": "nem"
+    },
+    {
+        "name": "Germanotta Stefani Joanne Angelina",
+        "date": "1986-03-28",
+        "time": "00:00:00",
+        "lat": "40.71",
+        "lon": "-74.01",
+        "timezone": "Amerika/New_York",
+        "dst": "igen"
+    },
+    {
+        "name": "Guevara Ernesto",
+        "date": "1928-06-14",
+        "time": "00:00:00",
+        "lat": "-32.95",
+        "lon": "-60.65",
+        "timezone": "Amerika/Argentina",
+        "dst": "nem"
+    },
+    {
+        "name": "Hershlag Neta-Lee",
+        "date": "1981-06-09",
+        "time": "00:00:00",
+        "lat": "31.77",
+        "lon": "35.21",
+        "timezone": "Asia/Jerusalem",
+        "dst": "igen"
+    },
+    {
+        "name": "Tim Bergling",
+        "date": "1989-09-08",
+        "time": "01:00:00",
+        "lat": "59.19",
+        "lon": "18.05",
+        "timezone": "Europa/Stockholm",
+        "dst": "igen"
+    },
+    {
+        "name": "Einstein Albert",
+        "date": "1879-03-14",
+        "time": "00:00:00",
+        "lat": "48.40",
+        "lon": "9.99",
+        "timezone": "Europa/Berlin",
+        "dst": "igen"
+    },
+    {
+        "name": "Curie Marie",
+        "date": "1867-11-07",
+        "time": "00:00:00",
+        "lat": "52.23",
+        "lon": "21.01",
+        "timezone": "Europa/Warsaw",
+        "dst": "igen"
+    },
+    {
+        "name": "da Vinci Leonardo",
+        "date": "1452-04-15",
+        "time": "00:00:00",
+        "lat": "43.78",
+        "lon": "10.86",
+        "timezone": "Európa/Roma",
+        "dst": "igen"
+    },
+    {
+        "name": "Kahlo Frida",
+        "date": "1907-07-06",
+        "time": "00:00:00",
+        "lat": "19.35",
+        "lon": "-99.16",
+        "timezone": "Amerika/Mexikocity",
+        "dst": "igen"
+    },
+    {
+        "name": "Turner Tina",
+        "date": "1939-11-26",
+        "time": "00:00:00",
+        "lat": "35.85",
+        "lon": "-89.40",
+        "timezone": "Amerika/Chicago",
+        "dst": "igen"
+    },
+    {
+        "name": "Gandhi Mahatma",
+        "date": "1869-10-02",
+        "time": "00:00:00",
+        "lat": "21.64",
+        "lon": "69.60",
+        "timezone": "Asia/Kolkata",
+        "dst": "nem"
+    },
+    {
+        "name": "Zanta Zoltán",
+        "date": "1966-01-07",
+        "time": "00:00:00",
+        "lat": "47.50",
+        "lon": "19.04",
+        "timezone": "Europe/budapest",
+        "dst": "igen"
+    },
+    {
+        "name": "anyád anyád",
+        "date": "1947-10-16",
+        "time": "15:00:00",
+        "lat": "47.30",
+        "lon": "19.05",
+        "timezone": "Europe/Budapest",
+        "dst": "nem"
+    }
+]
