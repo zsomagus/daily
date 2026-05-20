@@ -24,8 +24,6 @@ prashna, kérdező  horoszkópot
 varshaphala, éves  horoszkópot
 ezeknek részhoroszkópjait is elkésziti
 elemzésekket készít
-kórszak rendszert
-infógrafikát
 dallamot
 kottát
 a  horoszkópok közepében megjelenik a születési yantra mely  segíti a  meditációt.
@@ -60,8 +58,6 @@ prashna, questioning horoscope
 varshaphala, annual horoscope
 also prepares sub-horoscopes of these
 prepares analyses
-period system
-infographics
 melody
 scores
 the birth yantra appears in the middle of the horoscopes, which helps with meditation.
