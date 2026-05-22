@@ -1,0 +1,233 @@
+{
+  "Mucsi Zsombor": {
+    "name": "Mucsi Zsombor",
+    "birth_date": "1976-03-15 21:53:00",
+    "latitude": 46.48,
+    "longitude": 19.03,
+    "timezone_offset": 1.0
+  },
+  "Aurobindo Ghose": {
+    "name": "Aurobindo Ghose",
+    "birth_date": "1872-08-15 00:00:00:00",
+    "latitude": 22.34,
+    "longitude": 88.22,
+    "timezone_offset": 1.0
+  },
+  "Maharishi Mahesh Yogi": {
+    "name": "Maharishi Mahesh Yogi",
+    "birth_date": "1917-01-12 00:00:00:00",
+    "latitude": 21.15,
+    "longitude": 79.09,
+    "timezone_offset": 1.0
+  },
+  "Mahatma Gandhi": {
+    "name": "Mahatma Gandhi",
+    "birth_date": "1869-10-02 00:00:00:00",
+    "latitude": 21.38,
+    "longitude": 69.36,
+    "timezone_offset": 1.0
+  },
+  "Pandit Sanjay Rath": {
+    "name": "Pandit Sanjay Rath",
+    "birth_date": "1963-08-07 00:00:00:00",
+    "latitude": 21.46,
+    "longitude": 83.98,
+    "timezone_offset": 1.0
+  },
+  "India India": {
+    "name": "India India",
+    "birth_date": "1947-8-15 00:00:00:00",
+    "latitude": 28.37,
+    "longitude": 77.13,
+    "timezone_offset": 1.0
+  },
+  "Prof. B. Suryanarai n Rao": {
+    "name": "Prof. B. Suryanarai n Rao",
+    "birth_date": "1856-2-12 00:00:00:00",
+    "latitude": 18.3,
+    "longitude": 83.9,
+    "timezone_offset": 1.0
+  },
+  "Prof. B. V. Raman": {
+    "name": "Prof. B. V. Raman",
+    "birth_date": "1912-8-8 00:00:00:00",
+    "latitude": 12.58,
+    "longitude": 77.35,
+    "timezone_offset": 1.0
+  },
+  "Ramakrishna Paramahansa": {
+    "name": "Ramakrishna Paramahansa",
+    "birth_date": "1836-2-18 00:00:00:00",
+    "latitude": 22.91,
+    "longitude": 87.65,
+    "timezone_offset": 1.0
+  },
+  "Ramana Maharishi": {
+    "name": "Ramana Maharishi",
+    "birth_date": "1879-12-30 00:00:00:00",
+    "latitude": -78.15,
+    "longitude": 5.3,
+    "timezone_offset": 1.0
+  },
+  "Sarada Mata": {
+    "name": "Sarada Mata",
+    "birth_date": "1853-12-22 00:00:00:00",
+    "latitude": 23.1333,
+    "longitude": 87.5167,
+    "timezone_offset": 1.0
+  },
+  "Sri P. V. S. Chalapathi Rao (astrologer)": {
+    "name": "Sri P. V. S. Chalapathi Rao (astrologer)",
+    "birth_date": "1933-7-15 00:00:00:00",
+    "latitude": -80.56,
+    "longitude": 5.3,
+    "timezone_offset": 1.0
+  },
+  "Sri Satya Sai Baba (Puttaparthy)": {
+    "name": "Sri Satya Sai Baba (Puttaparthy)",
+    "birth_date": "1926-11-23 00:00:00:00",
+    "latitude": 14.1667,
+    "longitude": 77.8,
+    "timezone_offset": 1.0
+  },
+  "Swami Chandrasekhara Saraswati": {
+    "name": "Swami Chandrasekhara Saraswati",
+    "birth_date": "1894-5-20 00:00:00:00",
+    "latitude": 12.835,
+    "longitude": 79.705,
+    "timezone_offset": 1.0
+  },
+  "Swami Jayendra Saraswati": {
+    "name": "Swami Jayendra Saraswati",
+    "birth_date": "1935-7-18 00:00:00:00",
+    "latitude": 12.835,
+    "longitude": 79.705,
+    "timezone_offset": 1.0
+  },
+  "Swami Narasimha Bharthi": {
+    "name": "Swami Narasimha Bharthi",
+    "birth_date": "1858-3-11 00:00:00:00",
+    "latitude": -78.0,
+    "longitude": 5.12,
+    "timezone_offset": 1.0
+  },
+  "Swami Sivananda": {
+    "name": "Swami Sivananda",
+    "birth_date": "1887-9-8 00:00:00:00",
+    "latitude": -77.4,
+    "longitude": 5.11,
+    "timezone_offset": 1.0
+  },
+  "Swami Vivekananda": {
+    "name": "Swami Vivekananda",
+    "birth_date": "1863-1-12 00:00:00:00",
+    "latitude": -88.3,
+    "longitude": 5.54,
+    "timezone_offset": 1.0
+  },
+  "Bérczi Anna": {
+    "name": "Bérczi Anna",
+    "birth_date": "1986-6-20 8:10:00",
+    "latitude": 46.48,
+    "longitude": 19.03,
+    "timezone_offset": 1.0
+  },
+  "Pedersoli Carlo": {
+    "name": "Pedersoli Carlo",
+    "birth_date": "1929-10-31 00:00:00:00",
+    "latitude": 40.85,
+    "longitude": 14.27,
+    "timezone_offset": 2.0
+  },
+  "Bulsara Farouk": {
+    "name": "Bulsara Farouk",
+    "birth_date": "1946-09-05 00:00:00:00",
+    "latitude": -6.16,
+    "longitude": 39.2,
+    "timezone_offset": 1.0
+  },
+  "Germanotta Stefani Joanne Angelina": {
+    "name": "Germanotta Stefani Joanne Angelina",
+    "birth_date": "1986-03-28 00:00:00:00",
+    "latitude": 40.71,
+    "longitude": -74.01,
+    "timezone_offset": 2.0
+  },
+  "Guevara Ernesto": {
+    "name": "Guevara Ernesto",
+    "birth_date": "1928-06-14 00:00:00:00",
+    "latitude": -32.95,
+    "longitude": -60.65,
+    "timezone_offset": 1.0
+  },
+  "Hershlag Neta-Lee": {
+    "name": "Hershlag Neta-Lee",
+    "birth_date": "1981-06-09 00:00:00:00",
+    "latitude": 31.77,
+    "longitude": 35.21,
+    "timezone_offset": 2.0
+  },
+  "Tim Bergling": {
+    "name": "Tim Bergling",
+    "birth_date": "1989-09-08 01:00:00:00",
+    "latitude": 59.19,
+    "longitude": 18.05,
+    "timezone_offset": 2.0
+  },
+  "Einstein Albert": {
+    "name": "Einstein Albert",
+    "birth_date": "1879-03-14 00:00:00:00",
+    "latitude": 48.4,
+    "longitude": 9.99,
+    "timezone_offset": 2.0
+  },
+  "Curie Marie": {
+    "name": "Curie Marie",
+    "birth_date": "1867-11-07 00:00:00:00",
+    "latitude": 52.23,
+    "longitude": 21.01,
+    "timezone_offset": 2.0
+  },
+  "da Vinci Leonardo": {
+    "name": "da Vinci Leonardo",
+    "birth_date": "1452-04-15 00:00:00:00",
+    "latitude": 43.78,
+    "longitude": 10.86,
+    "timezone_offset": 2.0
+  },
+  "Kahlo Frida": {
+    "name": "Kahlo Frida",
+    "birth_date": "1907-07-06 00:00:00:00",
+    "latitude": 19.35,
+    "longitude": -99.16,
+    "timezone_offset": 2.0
+  },
+  "Turner Tina": {
+    "name": "Turner Tina",
+    "birth_date": "1939-11-26 00:00:00:00",
+    "latitude": 35.85,
+    "longitude": -89.4,
+    "timezone_offset": 2.0
+  },
+  "Gandhi Mahatma": {
+    "name": "Gandhi Mahatma",
+    "birth_date": "1869-10-02 00:00:00:00",
+    "latitude": 21.64,
+    "longitude": 69.6,
+    "timezone_offset": 1.0
+  },
+  "Zanta Zoltán": {
+    "name": "Zanta Zoltán",
+    "birth_date": "1966-01-07 00:00:00:00",
+    "latitude": 47.5,
+    "longitude": 19.04,
+    "timezone_offset": 2.0
+  },
+  "anyád anyád": {
+    "name": "anyád anyád",
+    "birth_date": "1947-10-16 15:00:00:00",
+    "latitude": 47.3,
+    "longitude": 19.05,
+    "timezone_offset": 1.0
+  }
+}

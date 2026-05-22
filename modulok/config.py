@@ -17,7 +17,7 @@ aktualis_vezeteknev = ""
 aktualis_keresztnev = ""
 
 # Mentési/forrás fájlok
-peoples_data_file = "mentett_adatok.json"
+peoples_data_file = "saved_persons.json"
 excel_file = "asztrológiai_adatbázis.xlsx"
 koord1_file = "file1.xlsx"
 koord2_file = "file2.xlsx"

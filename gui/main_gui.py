@@ -1,344 +1,239 @@
-import sys, os, pendulum
+# main_gui.py
+import sys
+import os
+import pendulum
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QGridLayout, QLabel, QLineEdit,
-    QDateEdit, QTimeEdit, QPushButton, QTextEdit, QComboBox, QCheckBox
+    QDateEdit, QTimeEdit, QPushButton, QTextEdit, QComboBox, QCheckBox, QTabWidget
 )
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtPrintSupport import QPrinter
-from PyQt5.QtGui import QTextDocument
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QDate, QTime
 
-from sky_skymap import generate_sky_map
-from modulok.varga_ikozaeder_adapter import varga_face_map
-from modulok import varshaphala_tools, prashna_core, astro_core
-
+# Modulok importálása - Tiszta struktúra, körkörös importok nélkül!
+from modulok import astro_core, prashna_core, elemzes, grafika, 
+ config, varshaphala_tools
 from gui import gui_helpers
-from modulok.draw import (
-    rajzol_del_indiai_horoszkop_svg,
-    rajzol_eszak_indiai_horoszkop_svg,
-)
-from modulok.varga_adapter import get_varga_chart
-from modulok.astro_core import get_chart_data  # prashna / varshaphala esetén, ha kell
-from modulok.sonic_bridge import bridge_load_person,  bridge_list_persons, bridge_save_person, convert_bridge_to_gui
 
-
-from modulok.tables import (
-    nakshatra_data,
-    tithi_dynamics,
-)
 app = QApplication(sys.argv)
 window = QWidget()
+window.setWindowTitle("SonicJyotish Pro - Teljes Asztro-Zenei Rendszer")
 layout = QGridLayout(window)
 
-# --- Ikosaéder animáció ---
-icosa_frames = []
-icosa_dir = os.path.join(os.path.dirname(__file__), "assets", "icosa")
+app.setStyleSheet("QWidget { background-color: rgb(137, 218, 218); }")
 
-for i in range(60):
-    path = os.path.join(icosa_dir, f"icosa_{i:03d}.png")
-    if os.path.exists(path):
-        icosa_frames.append(QPixmap(path))
-
-current_frame = 0
-def animate_icosa():
-    global current_frame
-    if icosa_frames:
-        icosaLabel.setPixmap(icosa_frames[current_frame])
-        icosaLabel.setScaledContents(True)
-        current_frame = (current_frame + 1) % len(icosa_frames)
-
-def jump_to_frame(face_id):
-    global current_frame
-    current_frame = (face_id - 1) * 3  # 3 frame / lap
-
-timer = QTimer()
-timer.timeout.connect(animate_icosa)
-timer.start(80)
-
-current_frame = 0
-
-# 🌌 Globális stíluslap
-app.setStyleSheet("""
-    QWidget {
-        background-color: rgb(137, 218, 218);
-    }
-""")
-
-# --- globális mezők ---
+# --- BAL OLDALI INPUT MEZŐK ---
 name1 = QLineEdit(); layout.addWidget(QLabel("Név"), 0, 0); layout.addWidget(name1, 0, 1)
-date1 = QDateEdit(); layout.addWidget(QLabel("Dátum"), 1, 0); layout.addWidget(date1, 1, 1)
-time1 = QTimeEdit(); layout.addWidget(QLabel("Idő"), 1, 2); layout.addWidget(time1, 1, 3)
-lat1 = QLineEdit(); lon1 = QLineEdit()
-layout.addWidget(QLabel("Szélesség"), 3, 0); layout.addWidget(lat1, 3, 1)
-layout.addWidget(QLabel("Hosszúság"), 3, 2); layout.addWidget(lon1, 3, 3)
+date1 = QDateEdit(); layout.addWidget(QLabel("Születési Dátum"), 1, 0); layout.addWidget(date1, 1, 1)
+date1.setCalendarPopup(True); date1.setDate(QDate(1976, 3, 15))
+
+time1 = QTimeEdit(); layout.addWidget(QLabel("Idő (óra:perc)"), 2, 0); layout.addWidget(time1, 2, 1)
+time1.setTime(QTime(21, 53))
+
+# INTELIGENS VÁROSKERESŐ SZEKCIÓ
+cityInput = QLineEdit(); layout.addWidget(QLabel("📍 Város/Helyszín"), 3, 0); layout.addWidget(cityInput, 3, 1)
+searchCityButton = QPushButton("🔍 Koordináták Keresése")
+layout.addWidget(searchCityButton, 4, 0, 1, 2)
+
+lat1 = QLineEdit("47.30"); layout.addWidget(QLabel("Szélesség (Lat)"), 5, 0); layout.addWidget(lat1, 5, 1)
+lon1 = QLineEdit("19.05"); layout.addWidget(QLabel("Hosszúság (Lon)"), 6, 0); layout.addWidget(lon1, 6, 1)
 
 timezoneSelector = QComboBox()
-timezoneSelector.addItems(["Europe/Budapest", "UTC", "Asia/Kolkata"])
-layout.addWidget(QLabel("Időzóna"), 5, 0); layout.addWidget(timezoneSelector, 5, 1)
-dstCheckbox = QCheckBox("☀️ Nyári időszámítás"); layout.addWidget(dstCheckbox, 5, 2)
+timezoneSelector.addItems(["Europe/Budapest", "UTC", "America/New_York", "Asia/Kolkata"])
+layout.addWidget(QLabel("Időzóna"), 7, 0); layout.addWidget(timezoneSelector, 7, 1)
 
+dstCheckbox = QCheckBox("Nyári időszámítás (DST)")
+layout.addWidget(dstCheckbox, 8, 0, 1, 2)
+
+# ✨ ÚJ/VISSZARAKOTT MEZŐ: Életkor vagy Év a Varshaphala számításhoz
+ageInput = QLineEdit("50")
+layout.addWidget(QLabel("⏳ Varshaphala Év/Életkor"), 9, 0); layout.addWidget(ageInput, 9, 1)
+
+# Részhoroszkópok betöltése a tables modulból
 vargaSelector = QComboBox()
-vargaSelector.addItems(list(varga_face_map.keys()))
-layout.addWidget(QLabel("Részhoroszkóp"), 6, 0)
-layout.addWidget(vargaSelector, 6, 1)
+vargaSelector.addItems(list(astro_core.varga_factors.keys()))
+layout.addWidget(QLabel("Részhoroszkóp (Varga)"), 10, 0); layout.addWidget(vargaSelector, 10, 1)
 
-calcButton = QPushButton("Horoszkóp számítás"); layout.addWidget(calcButton, 6, 2)
-savePDF = QPushButton("📄 PDF mentés"); layout.addWidget(savePDF, 7, 1)
-readAloud = QPushButton("🔊 Felolvasás"); layout.addWidget(readAloud, 7, 2)
+# Dallam és kotta forrás választó
+musicSourceSelector = QComboBox()
+musicSourceSelector.addItems([
+    "Rashi (Alapképlet D1)",
+    "Kiválasztott részhoroszkóp (Varga)",
+    "Rashi úr (Rashi Lord)",
+    "Nakshatra úr (Nakshatra Lord)",
+    "Varshaphala (Éves képlet)",
+    "Varshaphala úr"
+])
+layout.addWidget(QLabel("🎵 Dallam & Kotta forrása"), 11, 0); layout.addWidget(musicSourceSelector, 11, 1)
 
-ageInput = QLineEdit()
-layout.addWidget(QLabel("Életkor"), 5, 4)
-layout.addWidget(ageInput, 6, 4)
+# --- FŐ MŰVELETI GOMBOK ---
+calcButton = QPushButton("🔮 Alapképlet (D1/Varga) Számítás")
+calcButton.setStyleSheet("background-color: #FFD700; font-weight: bold;")
+layout.addWidget(calcButton, 12, 0, 1, 2)
 
-prashnaButton = QPushButton("🔮 Prashna horoszkóp")
-layout.addWidget(prashnaButton, 6, 3)
+# ✨ VISSZARAKOTT GOMB: Varshaphala Éves képlet gomb
+varshaphalaButton = QPushButton("📅 Varshaphala (Éves Képlet) Mentéssel")
+varshaphalaButton.setStyleSheet("background-color: #98FB98; font-weight: bold;")
+layout.addWidget(varshaphalaButton, 13, 0, 1, 2)
 
-varshaphalaButton = QPushButton("☀️ Vaarshaphala (Éves horoszkóp)")
-layout.addWidget(varshaphalaButton, 7, 4)
+# ✨ VISSZARAKOTT GOMB: Prashna gomb
+prashnaButton = QPushButton("⏱️ Prashna (Kérdő Képlet - Mostani Idő)")
+prashnaButton.setStyleSheet("background-color: #F0E68C; font-weight: bold;")
+layout.addWidget(prashnaButton, 14, 0, 1, 2)
 
-infografikaButton = QPushButton("📊 Infografika")
-layout.addWidget(infografikaButton, 7, 3)
+# --- JOBB OLDALI FÜLEK (KÉPEKNEK) ---
+tabs = QTabWidget()
+imageLabel1 = QLabel("Dél-indiai horoszkóp helye")
+imageLabel2 = QLabel("Rashi Lord térkép helye")
+imageLabel3 = QLabel("Nakshatra Lord térkép helye")
+tabs.addTab(imageLabel1, "Horoszkóp (Dél)")
+tabs.addTab(imageLabel2, "Rashi Lord")
+tabs.addTab(imageLabel3, "Nakshatra Lord")
+layout.addWidget(tabs, 0, 2, 15, 1)
 
-resultArea = QTextEdit(); resultArea.setReadOnly(True); layout.addWidget(resultArea, 9, 0, 1, 2)
-chartImage = QLabel(); layout.addWidget(chartImage, 8, 0, 1, 3)
-
-icosaLabel = QLabel()
-layout.addWidget(icosaLabel, 8, 3, 1, 1)
-
-# Mentett személyek
-personSelector = QComboBox()
-layout.addWidget(QLabel("Mentett személyek"), 0, 2)
-layout.addWidget(personSelector, 0, 3)
-
-
-skyMapButton = QPushButton("🌌 Égtérkép (csillagászati)")
-layout.addWidget(skyMapButton, 8, 4)
-# --- Funkciók ---
-def on_sky_map():
-    # születési / kérdezett adatok a GUI-ból
-    bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
-
-    # pendulum datetime → sima datetime Skyfieldnek
-    dt = pendulum.datetime(
-        int(bd["date"].split("-")[0]),
-        int(bd["date"].split("-")[1]),
-        int(bd["date"].split("-")[2]),
-        int(bd["time"].split(":")[0]),
-        int(bd["time"].split(":")[1]),
-        tz=bd["timezone"]
-    ).naive()  # timezone nélküli datetime Skyfieldnek
-
-    lat = float(bd["lat"] or 47.0)
-    lon = float(bd["lon"] or 19.0)
-
-    planets = get_planet_positions_skyfield(dt, lat, lon)
-    stars = load_bsc5_stars(limit_mag=6.5)
-
-    out_svg = pathlib.Path(__file__).parent / "egbolt_csillagaszati.svg"
-    draw_sky_svg(planets, stars, out_svg)
-
-    resultArea.append(f"🌌 Csillagászati égtérkép elkészült: {out_svg}")
+# Globális szöveges visszajelző terület
+resultArea = QTextEdit()
+resultArea.setReadOnly(True)
+layout.addWidget(QLabel("📋 Elemzés és Rendszerüzenetek:"), 15, 0, 1, 3)
+layout.addWidget(resultArea, 16, 0, 4, 3)
 
 
-def on_prashna():
-    bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
-    now = pendulum.now(tz=bd["timezone"])
-
-    chart_data = get_chart_data(
-        source="jyotishganit",
-        name=bd["name"],
-        year=now.year, month=now.month, day=now.day,
-        hour=now.hour, minute=now.minute,
-        tz_str=bd["timezone"],
-        lng=float(bd["lon"] or 19.0),
-        lat=float(bd["lat"] or 47.0),
-    )
-
-    resultArea.setText("🔮 Prashna horoszkóp elkészült az aktuális időpontra.")
-    rajzol_del_indiai_horoszkop_svg(
-        chart_data["planet_data"],
-        bd,
-        chart_data["planet_data"],
-        varga_name="Prashna",
-        tithi=chart_data["tithi"],
-        horoszkop_nev="Prashna",
-        date_str=bd["date"],
-        time_str=bd["time"],
-    )
+# --- REFRISH GRAPHICS HELPER (Közös képfrissítő) ---
+def frissit_kepeket(png_path, png_rashi_lord, png_nakshatra_lord):
+    if os.path.exists(png_path):
+        imageLabel1.setPixmap(QPixmap(png_path).scaled(400, 400))
+    if os.path.exists(png_rashi_lord):
+        imageLabel2.setPixmap(QPixmap(png_rashi_lord).scaled(400, 400))
+    if os.path.exists(png_nakshatra_lord):
+        imageLabel3.setPixmap(QPixmap(png_nakshatra_lord).scaled(400, 400))
 
 
-def on_varshaphala():
-    from modulok.varshaphala_tools import compute_varshaphala_chart
-    from modulok.draw import rajzol_del_indiai_horoszkop_svg
+# --- AUTOMATIKUS HELYSZÍN KERESŐ ---
+def on_search_city():
+    city_name = cityInput.text().strip()
+    if not city_name:
+        resultArea.setText("⚠️ Kérlek, írj be egy városnevet a kereséshez!")
+        return
+    
+    resultArea.setText(f"🔎 Keresés: {city_name}...")
+    success = config.fill_coordinate_entries(city_name, lat1, lon1)
+    
+    if success:
+        resultArea.append(f"✅ Város megtalálva! Koordináták frissítve.")
+        try:
+            now_dt = pendulum.now("Europe/Budapest")
+            config.update_dst_checkbox(dstCheckbox, "Europe/Budapest", now_dt)
+            resultArea.append("⏰ Időzóna és DST állapot szinkronizálva.")
+        except Exception as e:
+            print(f"DST hiba: {e}")
+    else:
+        resultArea.append(f"❌ A várost nem sikerült azonosítani.")
 
-    bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
-
-    # életkor mező
-    age = int(ageInput.text() or 0)
-
-    # születési idő → pendulum
-    birth_dt = pendulum.datetime(
-        int(bd["date"].split("-")[0]),
-        int(bd["date"].split("-")[1]),
-        int(bd["date"].split("-")[2]),
-        int(bd["time"].split(":")[0]),
-        int(bd["time"].split(":")[1]),
-        tz=bd["timezone"]
-    )
-
-    # Varshaphala számítás
-    result = compute_varshaphala_chart(
-        birth_dt=birth_dt,
-        age=age,
-        lat=float(bd["lat"]),
-        lon=float(bd["lon"])
-    )
-
-    chart = result["chart"]
-
-    # Szöveg kiírása
-    resultArea.setText(
-        f"☀️ Varshaphala (Éves horoszkóp)\n"
-        f"Dátum: {result['datetime'].to_datetime_string()}\n\n"
-        f"Tithi: {result['tithi']}\n"
-        f"Nakshatra: {result['nakshatra']}\n"
-        f"Yoga: {result['yoga']}\n"
-        f"Karana: {result['karana']}\n"
-        f"Vaara: {result['vaara']}\n"
-    )
-
-    # Rajzolás
-    svg_path = rajzol_del_indiai_horoszkop_svg(
-        chart.planet_data,
-        bd,
-        chart.planet_data,
-        varga_name="Varshaphala",
-        tithi=result["tithi"],
-        horoszkop_nev="Varshaphala",
-        date_str=result["datetime"].format("YYYY-MM-DD"),
-        time_str=result["datetime"].format("HH:mm"),
-    )
-
-    if os.path.exists(svg_path):
-        chartImage.setPixmap(QPixmap(svg_path))
-        chartImage.setScaledContents(True)
-
-    # Elemzés + PDF
-    md = generate_markdown_summary(chart)
-    md += summarize_purusharthas(chart)
-    pdf_path = save_analysis_pdf(md, bd["name"])
-    resultArea.append(f"📄 PDF mentve: {pdf_path}")
+searchCityButton.clicked.connect(on_search_city)
 
 
-
-
-def normalize_varga_label(label: str):
-    return label.split(" ")[0]   # "D9 (Navamsha)" → "D9"
-
+# --- 1. ESEMÉNYKEZELŐ: ALAPKÉPLET (D1 / VARGA) ---
 def on_calculate():
+    resultArea.clear()
+    resultArea.append("⚡ Alapképlet számítás indítása...")
     bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
     varga_label = vargaSelector.currentText()
-    varga_name = normalize_varga_label(varga_label)
+    zene_forras = musicSourceSelector.currentText()
 
-    dt = pendulum.datetime(
-        int(bd["date"].split("-")[0]),
-        int(bd["date"].split("-")[1]),
-        int(bd["date"].split("-")[2]),
-        int(bd["time"].split(":")[0]),
-        int(bd["time"].split(":")[1]),
-        tz=bd["timezone"]
-    )
-
-    timezone_offset = dt.utcoffset().total_seconds() / 3600.0
-
-    chart_data = get_varga_chart(
-        year=dt.year, month=dt.month, day=dt.day,
-        hour=dt.hour, minute=dt.minute,
-        lat=float(bd["lat"]),
-        lon=float(bd["lon"]),
-        timezone_offset=timezone_offset,
-        varga_label=varga_name
-    )
-
-    resultArea.setText(chart_data["text"])
-
-    png_path = chart_data.get("png_path")
-    if png_path and os.path.exists(png_path):
-        chartImage.setPixmap(QPixmap(png_path))
-        chartImage.setScaledContents(True)
-
-    
-    # ha akarod, itt beállíthatod:
-    # window.current_chart = chart_data.get("chart_obj")
-def on_save_pdf():
-    gui_helpers.save_analysis_pdf(resultArea)
-
-
-def on_read_aloud():
-    import pyttsx3
-    engine = pyttsx3.init()
-    engine.say(resultArea.toPlainText())
-    engine.runAndWait()
-
-
-
-
-def on_save_person():
-    bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
-    bd["dst"] = dstCheckbox.isChecked()
-    bridge_save_person(bd)
-    init_persons()
-
-
-def on_load_person():
-    name = personSelector.currentText()
-    bd = bridge_load_person(name)
-    if bd:
-        bd_gui = convert_bridge_to_gui(bd)
-        gui_helpers.load_data(bd_gui, name1, date1, time1, lat1, lon1, timezoneSelector, dstCheckbox)
-        personSelector.setCurrentText(name)
-
-
-def init_persons():
-    personSelector.clear()
-    for name in bridge_list_persons():
-        personSelector.addItem(name)
-init_persons()
-
-# --- AUTO LOAD LAST PERSON ---
-names = bridge_list_persons()
-if names:
-    last = names[-1]   # utolsó mentett
-    bd = bridge_load_person(last)
-    if bd:
-        bd_gui = convert_bridge_to_gui(bd)
-        gui_helpers.load_data(bd_gui, name1, date1, time1, lat1, lon1, timezoneSelector, dstCheckbox)
-        personSelector.setCurrentText(last)
-
-# --- Kapcsolások ---
+    try:
+        res = astro_core.compute_full_chart_for_gui(bd, varga_label)
+        svg_p, png_p = draw.rajzol_del_indiai_horoszkop_svg(res, bd, res["planet_data"], varga_name=varga_label, tithi=res["tithi"])
+        png_rl = draw_lord.generate_rashi_lord_chart(res, bd)
+        png_nl = draw_lord.generate_nakshatra_lord_chart(res, bd)
+        
+        frissit_kepeket(png_p, png_rl, png_nl)
+        
+        szoveg = elemzes.general_szoveges_elemzes(res["planet_data"], res["tithi"], res["varga_code"])
+        resultArea.append("\n" + szoveg)
+        
+        gui_helpers.save_analysis_pdf(resultArea)
+        sonic_world.generate_sonic_melodic_wav_by_source(bd, res, zene_forras)
+        resultArea.append(f"\n🚀 SIKERESEN MENTVE!")
+    except Exception as e:
+        resultArea.append(f"❌ Hiba: {str(e)}")
 
 calcButton.clicked.connect(on_calculate)
-savePDF.clicked.connect(on_save_pdf)
-readAloud.clicked.connect(on_read_aloud)
 
-musicButton = QPushButton("🎵 Megzenésít + ment WAV-ba")
-layout.addWidget(musicButton, 7, 0)
-#musicButton.clicked.connect(on_musicalize)
 
-saveButton = QPushButton("💾 Mentés")
-layout.addWidget(saveButton, 17, 0, 1, 2)
-loadButton = QPushButton("📂 Betöltés")
-layout.addWidget(loadButton, 17, 2, 1, 2)
-saveButton.clicked.connect(on_save_person)
-loadButton.clicked.connect(on_load_person)
+# --- 2. ESEMÉNYKEZELŐ: VARSHAPHALA (ÉVES KÉPLET) ---
+def on_varshaphala_calculate():
+    resultArea.clear()
+    resultArea.append("⚡ Varshaphala Éves Képlet számítása...")
+    bd = gui_helpers.get_birth_data(name1, date1, time1, lat1, lon1, timezoneSelector)
+    ev_vagy_kor = ageInput.text().strip()
+    zene_forras = musicSourceSelector.currentText()
 
-prashnaButton.clicked.connect(on_prashna)
-varshaphalaButton.clicked.connect(on_varshaphala)
-skyMapButton.clicked.connect(on_sky_map)
+    try:
+        # Meghívjuk a varshaphala_tools kalkulátorát az életkorral szűrve
+        res = varshaphala_tools.compute_varshaphala_chart_for_gui(bd, ev_vagy_kor)
+        resultArea.append("✅ Éves tranzit pozíciók kiszámítva.")
 
-#infografikaButton.clicked.connect(on_infografika_button_clicked)
+        svg_p, png_p = draw.rajzol_del_indiai_horoszkop_svg(res, bd, res["planet_data"], varga_name="Varshaphala", tithi=res.get("tithi", 1))
+        png_rl = draw_lord.generate_rashi_lord_chart(res, bd)
+        png_nl = draw_lord.generate_nakshatra_lord_chart(res, bd)
+        
+        frissit_kepeket(png_p, png_rl, png_nl)
+        
+        resultArea.append("\n📊 Éves képlet elemzése elkészült.")
+        gui_helpers.save_analysis_pdf(resultArea)
+        sonic_world.generate_sonic_melodic_wav_by_source(bd, res, zene_forras)
+        resultArea.append(f"\n🚀 ÉVES KÉPLET ÉS ZENE SIKERESEN MENTVE!")
+    except Exception as e:
+        resultArea.append(f"❌ Varshaphala hiba: {str(e)}")
 
-window.setLayout(layout)
-window.setWindowTitle("SonicJyotish – Egyszerű GUI")
-window.show()
-sys.exit(app.exec_())
+varshaphalaButton.clicked.connect(on_varshaphala_calculate)
+
+
+# --- 3. ESEMÉNYKEZELŐ: PRASHNA (KÉRDŐ KÉPLET) ---
+def on_prashna_calculate():
+    resultArea.clear()
+    resultArea.append("⚡ Prashna (Horoszkóp a mostani pillanatra) generálása...")
+    
+    try:
+        # Lekérjük a prashna_core segítségével a jelenlegi pillanatot és koordinátákat
+        lat_val = float(lat1.text() or 47.3)
+        lon_val = float(lon1.text() or 19.0)
+        prashna_data = prashna_core.fill_prashna_data_with_coords(lat_val, lon_val)
+        
+        # Átformázzuk, hogy a rajzoló és a zene megértse
+        bd_prashna = {
+            "name": "Prashna_Kérdés",
+            "date": prashna_data["date"],
+            "time": prashna_data["time"],
+            "lat": str(lat_val),
+            "lon": str(lon_val),
+            "timezone": "Europe/Budapest"
+        }
+        
+        res = prashna_data["chart_data"]
+        # Biztosítjuk a tithi meglétét
+        moon_lon = res["planet_data"]["Moon"]["longitude"]
+        sun_lon = res["planet_data"]["Sun"]["longitude"]
+        tithi = int(((moon_lon - sun_lon) % 360) / 12) + 1
+        res["tithi"] = tithi
+        res["varga_code"] = "D1"
+
+        svg_p, png_p = draw.rajzol_del_indiai_horoszkop_svg(res, bd_prashna, res["planet_data"], varga_name="Prashna", tithi=tithi)
+        png_rl = draw_lord.generate_rashi_lord_chart(res, bd_prashna)
+        png_nl = draw_lord.generate_nakshatra_lord_chart(res, bd_prashna)
+        
+        frissit_kepeket(png_p, png_rl, png_nl)
+        resultArea.append(f"⏱️ Pillanatnyi időpont rögzítve: {bd_prashna['date']} {bd_prashna['time']}")
+        
+        gui_helpers.save_analysis_pdf(resultArea)
+        sonic_world.generate_sonic_melodic_wav_by_source(bd_prashna, res, musicSourceSelector.currentText())
+        resultArea.append(f"\n🚀 PRASHNA JELENTÉS ÉS ZENE SIKERESEN MENTVE!")
+    except Exception as e:
+        resultArea.append(f"❌ Prashna hiba: {str(e)}")
+
+prashnaButton.clicked.connect(on_prashna_calculate)
+
+
+if __name__ == "__main__":
+    window.resize(1100, 850)
+    window.show()
+    sys.exit(app.exec_())

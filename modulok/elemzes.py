@@ -1,19 +1,9 @@
-import pyttsx3  # noqa: F401
-import pendulum  # ✅
-from modulok.astro_core import calculate_nakshatra
-from modulok.tables import purushartha_map, bolygo_nakshatra_map, haz_aspektusok, haz_bolygo_aspektusok, nakshatras
-from modulok.draw import rajzol_del_indiai_horoszkop_svg
-from modulok.config import BASE_DIR
-from modulok.graha_lord_core import compute_rashi_lord_positions, compute_nakshatra_lord_positions
-from collections import Counter
 import pandas as pd
 from markdown import markdown
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from reportlab.lib.units import cm
-import re
-
-
+from modulok.config import BASE_DIR
+from modulok.tables import haz_aspektusok, haz_bolygo_aspektusok
 
 # Házak elérhetők:
 # 📥 Adatbázis betöltése
@@ -445,4 +435,4 @@ def build_chart_data(
         "purushartha_list": purushartha_list,
     }
 
-    return build_chart_data
+return "\n".join(elemzes_riport)
