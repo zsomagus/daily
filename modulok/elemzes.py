@@ -19,7 +19,6 @@ from modulok import astro_core
 from modulok.visuals import generate_visuals_from_summary
 from modulok.tables import haz_aspektusok, haz_bolygo_aspektusok
 from modulok.terkep import generate_karmic_map_svg
-
 # -------------------------------------------------------------------
 # Alap beállítások
 # -------------------------------------------------------------------
