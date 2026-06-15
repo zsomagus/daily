@@ -1,0 +1,32 @@
+Közös_Projekt_Mappa/
+│
+├── .streamlit/               <-- Streamlit beállítások
+├── secrets.toml              <-- Lokális titkok (API kulcsok, Sheet URL)
+├── main_web.py               <-- Ez a Streamlit főoldalad (eddig dreamy_web.py volt)
+│
+├── main_bot.py               <-- Ez a Discord botod főindítója
+├── tithi_ajánlások.xlsx      <-- A Discord bot Tithi adatbázisa
+├── yantra/                   <-- A Discord bot Yantra képei
+│
+├── cogs/                     <-- DISCORD BOT FUNKCIÓK MAPPÁJA
+│   ├── utravalo.py           <-- A /hold és /yantra parancsok
+│   ├── dreamy_bot.py         <-- A /álom parancs (Discord verzió)
+│   └── asztrologia_bot.py    <-- A jövőbeli /horoszkóp parancs (Discord verzió)
+│
+├── modulok/                  <-- A KÖZÖS LOGIKA (A programok "agya")
+│   ├── __init__.py
+│   ├── load_alomszotar.py    <-- Álomszótár beolvasó kódja
+│   ├── analyze_dream.py      <-- Álomfejtő kereső logika
+│   ├── jyotishganit.py       <-- A csillagászati számítások kódja
+│   └── asztrologia_logika.py <-- A jövőbeli asztrológiai számítások
+│
+├── static/                   <-- KÖZÖS MÉDIAFÁJLOK (Képek, CSS, JSON)
+│   ├── alomszotar.json       <-- Az álomszótár adatbázis
+│   ├── web_logo.png          <-- Streamlit grafikai elemek
+│   └── asztro_adatok.json    <-- Jövőbeli asztrológiai adatok
+│
+└── gui/                      <-- CSAK A STREAMLIT AL-OLDALAI
+    ├── prashna_page.py       <-- A Prashna menüpont felülete
+    ├── yantra_page.py        <-- A Yantra menüpont felülete
+    ├── naplo_page.py         <-- Az Online Napló felülete
+    └── asztrologia_page.py   <-- A jövőbeli Asztrológia menüpont felülete

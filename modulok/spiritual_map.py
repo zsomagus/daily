@@ -1,134 +1,107 @@
-# modulok/spiritual_map.py
-
-import os
-import svgwrite
-from modulok.config import BASE_DIR
-
-BASE_OUTPUT = os.path.expanduser("~/Letöltések/SonicJyotish")
-
+# spiritual_map.py
+import tkinter as tk
+import math
 
 PLANET_COLORS = {
-    "Sun": "gold",
-    "Moon": "silver",
-    "Mars": "red",
-    "Mercury": "gray",
-    "Jupiter": "orange",
-    "Venus": "green",
-    "Saturn": "black",
+    "Sun": "#FFD700",       # Arany
+    "Moon": "#C0C0C0",      # Ezüst
+    "Mars": "#FF0000",      # Vörös
+    "Mercury": "#808080",   # Szürke
+    "Jupiter": "#FFA500",   # Narancs
+    "Venus": "#008000",     # Zöld
+    "Saturn": "#111111",    # Fekete/Sötét
     "Rahu": "#5A2A82",
     "Ketu": "#5A2A82",
 }
 
+def create_spiritual_interface(parent_frame, main_app):
+    """Beágyazza a spirituális térkép felületét."""
+    parent_frame.canvas = tk.Canvas(parent_frame, bg="#0f1115", highlightthickness=0)
+    parent_frame.canvas.pack(expand=True, fill="both")
+    
+    parent_frame.canvas.bind("<Configure>", lambda event: redraw_spiritual_map(parent_frame.canvas, main_app.last_chart_data))
 
-def _safe_person_folder(meta):
-    name = f"{meta.get('keresztnev','')}_{meta.get('vezeteknev','')}".strip()
-    safe = "".join(ch if ch.isalnum() or ch in "-_" else "_" for ch in name)
-    folder = os.path.join(BASE_OUTPUT, safe or "ismeretlen")
-    os.makedirs(folder, exist_ok=True)
-    return folder
+def update_spiritual_data(main_app_data):
+    pass
 
+def redraw_spiritual_map(canvas, data):
+    """Finomfizikai / Spirituális Yantra bolygóhálózat felbontásfüggetlen kirajzolása."""
+    canvas.delete("all")
+    
+    w = canvas.winfo_width()
+    h = canvas.winfo_height()
+    if w < 50: w = 1400
+    if h < 50: h = 900
 
-def generate_spiritual_map(chart, meta, filename="spiritual_map.svg"):
-    planets = chart.get("planets", {})
-    width, height = 1400, 900
+    cx, cy = w // 2, h // 2
+    radius = int(min(w, h) * 0.28)
 
-    folder = _safe_person_folder(meta)
-    out_path = os.path.join(folder, filename)
+    # 🔮 Energetikai Yantra koncentrikus háttérkörök rajzolása
+    canvas.create_text(cx, 30, text="SPIRITUÁLIS FINOMFIZIKAI YANTRA TÉRKÉP", font=("Arial", 14, "bold"), fill="#e6c229")
+    canvas.create_oval(cx - radius, cy - radius, cx + radius, cy + radius, outline="#343a40", width=1, dash=(2, 2))
+    
+    # Csomópontok dinamikus távolságai a felbontás alapján
+    dy = int(h * 0.26)
+    dx = int(w * 0.23)
 
-    dwg = svgwrite.Drawing(out_path, size=(width, height))
+    sun_pos   = (cx, cy - dy)
+    moon_pos  = (cx - dx, cy)
+    sat_pos   = (cx + dx, cy)
+    mars_pos  = (cx, cy + dy)
+    d9_pos    = (cx - dx, cy - dy)
+    d10_pos   = (cx + dx, cy - dy)
+    life_pos  = (cx + dx, cy + dy)
 
-    # Háttér
-    bg_path = BASE_DIR / "static" / "background.jpg"
-    if bg_path.exists():
-        dwg.add(dwg.image(href=str(bg_path), insert=(0, 0), size=(width, height)))
-
-    center = (width / 2, height / 2)
-
-    # Nyíl marker
-    marker = dwg.marker(insert=(10, 5), size=(10, 10), orient="auto", id="arrow")
-    marker.add(dwg.path(d="M 0 0 L 10 5 L 0 10 z", fill="#FFFFFF"))
-    dwg.defs.add(marker)
-
-    def arrow(start, end, color="#FFFFFF", width=2):
-        dwg.add(dwg.line(
-            start=start,
-            end=end,
-            stroke=color,
-            stroke_width=width,
-            marker_end=marker.get_funciri()
-        ))
-
-    def node(x, y, title, subtitle="", color="#2E4E1F"):
-        dwg.add(dwg.circle(center=(x, y), r=70,
-                           fill="rgba(0,0,0,0.55)",
-                           stroke=color,
-                           stroke_width=3))
-        dwg.add(dwg.text(
-            title,
-            insert=(x, y - 5),
-            text_anchor="middle",
-            fill="white",
-            font_size="18px"
-        ))
+    def draw_sp_node(x, y, title, subtitle="", border_color="#ffffff"):
+        canvas.create_oval(x-65, y-65, x+65, y+65, fill="#1c1e24", outline=border_color, width=2)
+        canvas.create_text(x, y-8, text=title, font=("Arial", 11, "bold"), fill="#ffffff", anchor="center")
         if subtitle:
-            dwg.add(dwg.text(
-                subtitle,
-                insert=(x, y + 18),
-                text_anchor="middle",
-                fill="#DDFFDD",
-                font_size="13px"
-            ))
+            canvas.create_text(x, y+14, text=subtitle, font=("Arial", 10), fill="#a0a5b5", anchor="center")
 
-    # Középső csomópont – Te / Lélek
-    node(center[0], center[1],
-         f"{meta.get('keresztnev','')} {meta.get('vezeteknev','')}",
-         "Lélek / Én",
-         color="#FFFFFF")
+    def draw_sp_arrow(x1, y1, x2, y2, color="#ffffff", width=2):
+        canvas.create_line(x1, y1, x2, y2, fill=color, width=width, arrow=tk.LAST, arrowshape=(9, 11, 4))
 
-    # Fő csomópontok
-    sun_pos   = (center[0], center[1] - 220)
-    moon_pos  = (center[0] - 320, center[1])
-    sat_pos   = (center[0] + 320, center[1])
-    mars_pos  = (center[0], center[1] + 220)
-    d9_pos    = (center[0] - 320, center[1] - 220)
-    d10_pos   = (center[0] + 320, center[1] - 220)
-    life_pos  = (center[0] + 320, center[1] + 220)
+    planets = data.get("planets_d1", {}) if data else {}
 
-    # Nap – cél
-    sun = planets.get("Sun", {})
-    sun_sign = sun.get("sign", "ismeretlen")
-    node(sun_pos[0], sun_pos[1], "Nap – Cél", sun_sign, color=PLANET_COLORS["Sun"])
-    arrow(center, sun_pos, color=PLANET_COLORS["Sun"], width=3)
+    # Fő hálózati nyilak a központból kifelé
+    draw_sp_arrow(cx, cy, sun_pos[0], sun_pos[1], color=PLANET_COLORS["Sun"], width=3)
+    draw_sp_arrow(cx, cy, moon_pos[0], moon_pos[1], color=PLANET_COLORS["Moon"], width=3)
+    draw_sp_arrow(cx, cy, sat_pos[0], sat_pos[1], color="#ff6b6b", width=3)
+    draw_sp_arrow(cx, cy, mars_pos[0], mars_pos[1], color=PLANET_COLORS["Mars"], width=3)
+    draw_sp_arrow(cx, cy, life_pos[0], life_pos[1], color="#66CC99", width=2)
 
-    # Hold – lélek
-    moon = planets.get("Moon", {})
-    moon_sign = moon.get("sign", "ismeretlen")
-    node(moon_pos[0], moon_pos[1], "Hold – Lélek", moon_sign, color=PLANET_COLORS["Moon"])
-    arrow(center, moon_pos, color=PLANET_COLORS["Moon"], width=3)
+    # Keresztirányú áramlási nyilak (Nap -> Hold, Nap -> Szaturnusz)
+    draw_sp_arrow(sun_pos[0], sun_pos[1], moon_pos[0], moon_pos[1], color=PLANET_COLORS["Moon"], width=2)
+    draw_sp_arrow(sun_pos[0], sun_pos[1], sat_pos[0], sat_pos[1], color="#ff6b6b", width=2)
 
-    # Szaturnusz – lecke
-    sat = planets.get("Saturn", {})
-    sat_sign = sat.get("sign", "ismeretlen")
-    node(sat_pos[0], sat_pos[1], "Szaturnusz – Lecke", sat_sign, color=PLANET_COLORS["Saturn"])
-    arrow(center, sat_pos, color=PLANET_COLORS["Saturn"], width=3)
+    # 1. KÖZÉPPONT: Lélek / Én
+    nev = data.get("name", "Lélek") if data else "Lélek"
+    draw_sp_node(cx, cy, nev, "Lélek / Én", border_color="#ffffff")
 
-    # Mars – fejlődés
-    mars = planets.get("Mars", {})
-    mars_sign = mars.get("sign", "ismeretlen")
-    node(mars_pos[0], mars_pos[1], "Mars – Fejlődés", mars_sign, color=PLANET_COLORS["Mars"])
-    arrow(center, mars_pos, color=PLANET_COLORS["Mars"], width=3)
+    # 2. Nap – Cél
+    sun_sign = planets.get("Sun", {}).get("sign", "-")
+    draw_sp_node(sun_pos[0], sun_pos[1], "Nap – Cél", sun_sign, border_color=PLANET_COLORS["Sun"])
 
-    # D9 / D10
-    node(d9_pos[0], d9_pos[1], "D9 – Bhakti mód", "Lélek útja", color="#FFCC66")
-    node(d10_pos[0], d10_pos[1], "D10 – Karma mód", "Hivatás útja", color="#FF9966")
+    # 3. Hold – Lélek
+    moon_sign = planets.get("Moon", {}).get("sign", "-")
+    draw_sp_node(moon_pos[0], moon_pos[1], "Hold – Lélek", moon_sign, border_color=PLANET_COLORS["Moon"])
 
-    # Életmód ág
-    node(life_pos[0], life_pos[1], "Életmód", "Test – Lélek – Szellem", color="#66CC99")
-    arrow(center, life_pos, color="#66CC99", width=2)
+    # 4. Szaturnusz – Lecke
+    sat_sign = planets.get("Saturn", {}).get("sign", "-")
+    draw_sp_node(sat_pos[0], sat_pos[1], "Szaturnusz – Lecke", sat_sign, border_color="#ff6b6b")
 
-    # Nap ↔ Hold, Nap ↔ Szaturnusz
-    arrow(sun_pos, moon_pos, color=PLANET_COLORS["Moon"], width=2)
-    arrow(sun_pos, sat_pos, color=PLANET_COLORS["Saturn"], width=2)
+    # 5. Mars – Fejlődés
+    mars_sign = planets.get("Mars", {}).get("sign", "-")
+    draw_sp_node(mars_pos[0], mars_pos[1], "Mars – Fejlődés", mars_sign, border_color=PLANET_COLORS["Mars"])
 
-    dwg.save()
-    return out_path
+    # 6. Részhoroszkóp elágazások (D9 és D10)
+    draw_sp_node(d9_pos[0], d9_pos[1], "D9 – Bhakti mód", "Lélek útja", border_color="#FFCC66")
+    draw_sp_node(d10_pos[0], d10_pos[1], "D10 – Karma mód", "Hivatás útja", border_color="#FF9966")
+
+    # 7. Életmód ág
+    draw_sp_node(life_pos[0], life_pos[1], "Életmód", "Test-Lélek-Szellem", border_color="#66CC99")
+
+    # Középső Tithi érték kiírása finoman a lila kör helyett
+    if data:
+        tithi_v = data.get("tithi_varga", 1)
+        canvas.create_text(cx, cy + 85, text=f"Tithi fázis: {tithi_v}", font=("Arial", 11, "bold"), fill="#d33682")

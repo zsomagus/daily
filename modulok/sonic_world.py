@@ -14,7 +14,7 @@ from modulok.tables import (
     tithi_dynamics,
     mantra_map,
     ELEMENTS,
-    RHYTMS
+    RHYTHMS
 )
 
 BASE_DIR = Path(__file__).resolve().parent

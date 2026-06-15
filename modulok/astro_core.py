@@ -240,12 +240,141 @@ def compute_all_vargas(planets, varga_list):
             results[varga][pname] = {"sign": vsign, "part": vpart}
     return results
 
+# ---------------------------------------------------------
+# 7) Tithi számító és Varga táblázat generálása
+# ---------------------------------------------------------
 def calculate_tithi(sun_lon, moon_lon):
+    """ Kiszámolja a holdfázist (Tithi 1 és 30 között) """
     diff = (moon_lon - sun_lon) % 360
-    return int(diff / 12) + 1
+    tithi = int(diff // 12) + 1
+    return 30 if tithi > 30 else tithi
 
+def compute_all_vargas(planets, varga_list):
+    results = {}
+    for varga in varga_list:
+        results[varga] = {}
+        for pname, pdata in planets.items():
+            lon = pdata["lon_sid"]
+            vsign, vpart = compute_varga(lon, varga)
+            results[varga][pname] = {"sign": vsign, "part": vpart}
+    return results
 
-def get_tithi_yantra(tithi):
-    yantra_index = (tithi - 1) % 27
-    yantra_name = f"{yantra_index} nitya.jpg"
-    return os.path.join(STATIC_DIR, "yantra", yantra_name)
+def find_yantra_by_tithi(tithi, yantra_folder=None):
+    import os
+    
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    kivalasztott_mappa = os.path.join(base_dir, "static", "yantra")
+    
+    if not os.path.exists(kivalasztott_mappa):
+        os.makedirs(kivalasztott_mappa, exist_ok=True)
+
+    tithi_str = str(tithi).lower().strip()
+    tithi_szam = "1"  # Alapértelmezett fallback
+
+    # Kiszűrjük a tiszta számot (pl. "25")
+    digits = "".join([c for c in tithi_str if c.isdigit()])
+    if digits:
+        tithi_szam = str(int(digits))
+    else:
+        if "trayodashi" in tithi_str: tithi_szam = "13"
+        elif "chaturdashi" in tithi_str: tithi_szam = "14"
+        elif "purnima" in tithi_str: tithi_szam = "15"
+        elif "ekadashi" in tithi_str: tithi_szam = "11"
+        elif "dvadashi" in tithi_str: tithi_szam = "12"
+
+    try:
+        # VÉGIGBÖNGÉSSZÜK A MAPPÁT CSAK A SZÁM ALAPJÁN
+        for fname in os.listdir(kivalasztott_mappa):
+            # Megtisztítjuk a fájlnevet a kiterjesztésektől (kezelve a .jpg.jpg-t is)
+            alap_nev = fname.lower()
+            for ext in [".jpg", ".png", ".jpeg"]:
+                alap_nev = alap_nev.replace(ext, "")
+            alap_nev = alap_nev.strip()
+
+            # Ha a megtisztított név pontosan megegyezik a keresett számmal
+            if alap_nev == tithi_szam:
+                teljes_ut = os.path.join(kivalasztott_mappa, fname)
+                print(f"🎯 SIKER: Yantra megtalálva csak a szám alapján: {fname}")
+                return teljes_ut
+    except Exception as e:
+        print(f"❌ Hiba a yantra mappa olvasásakor: {e}")
+
+    # Ha egyáltalán nincs ilyen számú fájl, adjon vissza egy vészhelyzeti első képet
+    try:
+        for fname in os.listdir(kivalasztott_mappa):
+            if fname.lower().endswith((".jpg", ".png", ".jpeg")):
+                return os.path.join(kivalasztott_mappa, fname)
+    except:
+        pass
+
+    return ""
+def get_varga_chart_data(year: int, month: int, day: int, hour: int, minute: int,
+                         lat: float, lon: float, timezone_offset: float,
+                         varga_label: str = "D1 (Rashi)"):
+    """ 
+    A Swiss Ephemeris adatokból felépített Varga adatszerkezet, 
+    ami kompatibilis a GUI-val és kiküszöböli a hiányzó jyotishganit importokat.
+    """
+    # Kivonjuk a kódot (pl. "D1 (Rashi)" -> "D1")
+    varga_code = varga_label.split(" ")[0].strip()
+    
+    # Legeneráljuk az alap D1 képletet a meglévő, stabil függvénnyel
+    chart_base = generate_chart("Ideiglenes", year, month, day, hour, minute, lat, lon)
+    
+    planet_data = {}
+    jegy_sorrend = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", 
+                    "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
+
+    # Átszámoljuk a bolygókat a kért Varga (részhoroszkóp) szerint
+    factor = 1
+    try:
+        factor = int(varga_code.replace("D", ""))
+    except:
+        factor = 1
+
+    for pname, pdata in chart_base["planets"].items():
+        lon_sid = pdata["lon_sid"]
+        
+        # Ha nem D1, akkor a Varga osztás eltolja a pozíciókat
+        if factor > 1:
+            vsign, vpart = compute_varga(lon_sid, varga_code)
+            jegy_idx = jegy_sorrend.index(vsign)
+            fok_belul = (lon_sid % 30) * factor % 30
+        else:
+            vsign = pdata["sign"]
+            jegy_idx = jegy_sorrend.index(vsign)
+            fok_belul = pdata["deg"]
+
+        planet_data[pname] = {
+            "vedic_longitude": float((jegy_idx * 30) + fok_belul),
+            "sign": vsign,
+            "rasi_deg": float(fok_belul),
+            "nakshatra": pdata["nakshatra"],
+            "house": 1, # Ideiglenes alapértelmezett érték
+        }
+
+    # Aszcendens kiszámítása a Vargához
+    asc_lon = chart_base["ascendant"]["lon_sid"]
+    if factor > 1:
+        vsign_asc, _ = compute_varga(asc_lon, varga_code)
+        jegy_idx_asc = jegy_sorrend.index(vsign_asc)
+        fok_asc = (asc_lon % 30) * factor % 30
+    else:
+        vsign_asc = chart_base["ascendant"]["sign"]
+        jegy_idx_asc = jegy_sorrend.index(vsign_asc)
+        fok_asc = chart_base["ascendant"]["deg"]
+
+    planet_data["ASC"] = {
+        "vedic_longitude": float((jegy_idx_asc * 30) + fok_asc),
+        "sign": vsign_asc,
+        "rasi_deg": float(fok_asc)
+    }
+
+    return {
+        "varga_label": varga_label,
+        "varga_code": varga_code,
+        "factor": factor,
+        "planet_data": planet_data,
+        "tithi": str(chart_base["tithi"]),
+        "nakshatra": planet_data["Moon"]["nakshatra"],
+    }

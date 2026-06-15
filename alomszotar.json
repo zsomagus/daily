@@ -1,0 +1,1719 @@
+{
+    "alomszotar": [
+        {
+            "kulcsszo": "ablak",
+            "jelentesek": [
+                "Csukott ablak: kíváncsiság, olyasmit szeretnél megtudni, amihez nincs közöd.",
+                "Nyitott ablak: félsz, hogy titkod kiderül.",
+                "Nyitott ablakon jó érzéssel kinézni: kiegyensúlyozott, szeretetteljes kapcsolat.",
+                "Ablakot mosni: valamit elfelejtettél vagy elvesztettél, de nem mertél szólni érte."
+            ]
+        },
+        {
+            "kulcsszo": "víz",
+            "jelentesek": [
+                "Tiszta víz: lelki tisztaság, nyugalom.",
+                "Zavaros víz: bizonytalanság, érzelmi zűrzavar.",
+                "Áradás: túlterheltség, érzelmi nyomás.",
+                "Hullámzó víz: változó érzelmek, bizonytalanság."
+            ]
+        },
+        {
+            "kulcsszo": "kutya",
+            "jelentesek": [
+                "Barátságos kutya: hűség, bizalom.",
+                "Ugató kutya: figyelmeztetés, veszély közeledik.",
+                "Támadó kutya: konfliktus, árulás.",
+                "Elveszett kutya: magány, bizalomvesztés."
+            ]
+        },
+        {
+            "kulcsszo": "repülés",
+            "jelentesek": [
+                "Szabadon repülni: szabadságvágy, siker.",
+                "Zuhanó repülés: félelem a kudarctól.",
+                "Másokat repülni látni: inspiráció, példakép.",
+                "Repülőgépben ülni: új lehetőségek, utazás."
+            ]
+        },
+        {
+            "kulcsszo": "pénz",
+            "jelentesek": [
+                "Pénzt találni: váratlan szerencse.",
+                "Pénzt elveszíteni: veszteség, csalódás.",
+                "Pénzt adni: nagylelkűség, segítségnyújtás.",
+                "Pénzt kapni: elismerés, jutalom."
+            ]
+        },
+        {
+            "kulcsszo": "tűz",
+            "jelentesek": [
+                "Kis tűz: szenvedély, lelkesedés.",
+                "Nagy tűz: veszély, pusztítás.",
+                "Tüzet oltani: problémamegoldás.",
+                "Tűz mellett ülni: biztonság, melegség."
+            ]
+        },
+        {
+            "kulcsszo": "hal",
+            "jelentesek": [
+                "Úszó hal: bőség, jólét.",
+                "Halászni: lehetőségek keresése.",
+                "Halat enni: egészség, erő.",
+                "Elpusztult hal: veszteség, csalódás."
+            ]
+        },
+        {
+            "kulcsszo": "hegy",
+            "jelentesek": [
+                "Hegyet mászni: kihívások leküzdése.",
+                "Hegy tetején állni: siker, cél elérése.",
+                "Hegyet látni: akadályok az úton.",
+                "Hegyről lemenni: pihenés, visszavonulás."
+            ]
+        },
+        {
+            "kulcsszo": "kulcs",
+            "jelentesek": [
+                "Kulcsot találni: új lehetőség.",
+                "Kulcsot elveszíteni: akadály, elzárkózás.",
+                "Kulcsot használni: megoldás megtalálása.",
+                "Több kulcs: több választási lehetőség."
+            ]
+        },
+        {
+            "kulcsszo": "virág",
+            "jelentesek": [
+                "Nyíló virág: új kezdet, öröm.",
+                "Hervadt virág: veszteség, szomorúság.",
+                "Virágot kapni: szeretet, megbecsülés.",
+                "Virágot adni: kedvesség, figyelmesség."
+            ]
+        },
+        {
+            "kulcsszo": "kígyó",
+            "jelentesek": [
+                "Kígyó látványa: rejtett félelmek, ösztönök.",
+                "Kígyó támadása: árnyék-én konfliktus.",
+                "Kígyót simogatni: gyógyulás, ösztönök integrálása.",
+                "Kígyó levetett bőre: újjászületés, átalakulás."
+            ]
+        },
+        {
+            "kulcsszo": "ház",
+            "jelentesek": [
+                "Ismeretlen ház: tudattalan tartalmak feltárulása.",
+                "Összedőlt ház: régi identitás felbomlása.",
+                "Takarítani egy házban: lelki tisztulás.",
+                "Házba belépni: új életszakasz."
+            ]
+        },
+        {
+            "kulcsszo": "tükör",
+            "jelentesek": [
+                "Tükörbe nézni: önismeret, valódi én.",
+                "Törött tükör: identitásválság, tagadás.",
+                "Tükör nélküliség: önkép hiánya.",
+                "Tükör mögötti tér: tudattalan üzenete."
+            ]
+        },
+        {
+            "kulcsszo": "gyermek",
+            "jelentesek": [
+                "Gyermekkel találkozni: belső gyermek jelzése.",
+                "Sérült gyermek: elnyomott trauma.",
+                "Nevető gyermek: kreatív energia.",
+                "Eltűnt gyermek: elfojtott vágyak."
+            ]
+        },
+        {
+            "kulcsszo": "halál",
+            "jelentesek": [
+                "Saját halálod: teljes átalakulás.",
+                "Más halála: kapcsolat lezárása.",
+                "Halotthoz beszélni: üzenet a tudattalanból.",
+                "Halálfélelem: változás ellenállása."
+            ]
+        },
+        {
+            "kulcsszo": "újjászületés",
+            "jelentesek": [
+                "Új testben lenni: új identitás.",
+                "Születést látni: új kezdet.",
+                "Fényben való újjászületés: spirituális megvilágosodás.",
+                "Fájdalmas újjászületés: nehéz, de szükséges változás."
+            ]
+        },
+        {
+            "kulcsszo": "fény",
+            "jelentesek": [
+                "Erős fény: spirituális ébredés.",
+                "Távoli fény: cél, remény.",
+                "Villódzó fény: bizonytalan út.",
+                "Fényből érkező alak: magasabb tudatosság."
+            ]
+        },
+        {
+            "kulcsszo": "sötétség",
+            "jelentesek": [
+                "Teljes sötétség: belső árnyék megnyilvánulása.",
+                "Fényt keresni a sötétben: önismeret útja.",
+                "Sötétben ragadni: félelem a változástól.",
+                "Sötétségből előlépő alak: tudattalan üzenete."
+            ]
+        },
+        {
+            "kulcsszo": "erdő",
+            "jelentesek": [
+                "Sűrű erdő: lelki útkeresés.",
+                "Elveszni az erdőben: identitásválság.",
+                "Fényes erdő: belső béke.",
+                "Erdő mélyén lévő ház: belső mag."
+            ]
+        },
+        {
+            "kulcsszo": "út",
+            "jelentesek": [
+                "Egyenes út: egyértelmű életirány.",
+                "Kanyargó út: bizonytalanság.",
+                "Elágazás: döntési helyzet.",
+                "Út nélküli táj: új ösvény létrehozása."
+            ]
+        },
+        {
+            "kulcsszo": "híd",
+            "jelentesek": [
+                "Hídon átkelni: átmenet két életszakasz között.",
+                "Híd alatt állni: elkerült döntések.",
+                "Leszakadó híd: kapcsolatok megszakadása.",
+                "Új híd: lehetőség a gyógyulásra."
+            ]
+        },
+        {
+            "kulcsszo": "kapu",
+            "jelentesek": [
+                "Nyitott kapu: új kezdet.",
+                "Zárt kapu: ellenállás, félelem.",
+                "Őrzött kapu: belső határ.",
+                "Kapun átlépni: spirituális beavatás."
+            ]
+        },
+        {
+            "kulcsszo": "vízesés",
+            "jelentesek": [
+                "Vízesés látványa: érzelmek felszabadulása.",
+                "Vízesés alá állni: megtisztulás.",
+                "Zuhaogó víz: kontrollvesztés.",
+                "Kiszáradt vízesés: kiürült energiatartalékok."
+            ]
+        },
+        {
+            "kulcsszo": "madár",
+            "jelentesek": [
+                "Szabad madár: lélek szabadsága.",
+                "Sebzett madár: sérült remény.",
+                "Fekete madár: árnyéküzenet.",
+                "Madár repülésre hív: spirituális útmutatás."
+            ]
+        },
+        {
+            "kulcsszo": "macska",
+            "jelentesek": [
+                "Barátságos macska: intuitív energia.",
+                "Elbújó macska: elfojtott érzések.",
+                "Támadó macska: női árnyék-energia.",
+                "Fehér macska: tiszta női princípium."
+            ]
+        },
+        {
+            "kulcsszo": "alkonyat",
+            "jelentesek": [
+                "Alkonyat látványa: átmeneti időszak.",
+                "Hosszú alkony: döntés halogatása.",
+                "Alkonyból felbukkanó alak: tudattalan árnyékszemélyiség.",
+                "Naplemente: egy ciklus lezárása."
+            ]
+        },
+        {
+            "kulcsszo": "hold",
+            "jelentesek": [
+                "Telihold: érzelmek tetőpontja.",
+                "Újhold: új kezdet a mélyben.",
+                "Holdfogyatkozás: rejtett félelmek.",
+                "Két hold az égen: kettős identitás."
+            ]
+        },
+        {
+            "kulcsszo": "női alak",
+            "jelentesek": [
+                "Ismeretlen nő: anima (belső női princípium).",
+                "Idős nő: bölcsesség.",
+                "Sötét női alak: árnyék-anima.",
+                "Szerető nőalak: lelki gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "férfi alak",
+            "jelentesek": [
+                "Ismeretlen férfi: animus (belső férfi princípium).",
+                "Haragos férfi: elnyomott agresszió.",
+                "Segítő férfi: erőforrás.",
+                "Árnyékférfi: elutasított részeid."
+            ]
+        },
+        {
+            "kulcsszo": "templom",
+            "jelentesek": [
+                "Templomba lépni: spirituális útkeresés.",
+                "Üres templom: hitvesztés.",
+                "Fényes templom: magas tudatszint.",
+                "Összedőlt templom: régi hitrendszer összeomlása."
+            ]
+        },
+        {
+            "kulcsszo": "tenger",
+            "jelentesek": [
+                "Nyugodt tenger: lelki béke.",
+                "Viharos tenger: érzelmi káosz.",
+                "Végtelen tenger: tudattalan mélysége.",
+                "Tengerbe merülni: belső utazás."
+            ]
+        },
+        {
+            "kulcsszo": "szörny",
+            "jelentesek": [
+                "Szörnytől menekülni: elfojtott trauma.",
+                "Szörnyet legyőzni: árnyék integráció.",
+                "Szörnnyé válni: identitásválság.",
+                "Barátságos szörny: elfogadás."
+            ]
+        },
+        {
+            "kulcsszo": "ajtó",
+            "jelentesek": [
+                "Csukott ajtó: bizonytalanság.",
+                "Nyitott ajtó: lehetőség.",
+                "Lakatlan ajtó: elnyomott igazság.",
+                "Ismeretlen ajtón belépni: mély önfelfedezés."
+            ]
+        },
+        {
+            "kulcsszo": "lépcső",
+            "jelentesek": [
+                "Lépcsőn felfelé: fejlődés.",
+                "Lépcsőn lefelé: belépés a tudattalanba.",
+                "Összedőlt lépcső: elakadás.",
+                "Végtelen lépcső: belső utazás."
+            ]
+        },
+        {
+            "kulcsszo": "tűkörlabirintus",
+            "jelentesek": [
+                "Labirintusban bolyongani: önkeresés.",
+                "Kijáratot találni: megoldás.",
+                "Tükrös labirintus: identitás-zavar.",
+                "Labirintus közepén: belső igazság."
+            ]
+        },
+        {
+            "kulcsszo": "szél",
+            "jelentesek": [
+                "Erős szél: külső hatások befolyása.",
+                "Lágy szél: friss energiák.",
+                "Forgószél: érzelmi káosz.",
+                "Szélcsend: stagnálás."
+            ]
+        },
+        {
+            "kulcsszo": "tű",
+            "jelentesek": [
+                "Megszúr a tű: lelki sérülés.",
+                "Tűt keresni: apró részletek kutatása.",
+                "Tűt találni: felismerés.",
+                "Tűvel varrni: gyógyulás, összekapcsolódás."
+            ]
+        },
+        {
+            "kulcsszo": "vonat",
+            "jelentesek": [
+                "Vonaton utazni: életút.",
+                "Lekésni a vonatot: elmulasztott lehetőség.",
+                "Ismeretlen vonat: új életirány.",
+                "Vonatbaleset: hirtelen változás."
+            ]
+        },
+        {
+            "kulcsszo": "szikla",
+            "jelentesek": [
+                "Sziklán állni: erő, stabilitás.",
+                "Szikláról leesni: bizonytalanság.",
+                "Sziklát mászni: kitartás.",
+                "Sziklahasadék: belső feszültség."
+            ]
+        },
+        {
+            "kulcsszo": "kapcsoló",
+            "jelentesek": [
+                "Kapcsolót felkapcsolni: tudatosság.",
+                "Leoltani: visszavonulás.",
+                "Kapcsoló nem működik: eszköztelenség.",
+                "Ismeretlen kapcsoló: új lehetőség."
+            ]
+        },
+        {
+            "kulcsszo": "sárkány",
+            "jelentesek": [
+                "Sárkány látványa: belső erő.",
+                "Sárkánytól félni: félelem a hatalomtól.",
+                "Megülni a sárkányt: uralod az ösztönöket.",
+                "Sárkánnyal beszélni: magasabb bölcsesség."
+            ]
+        },
+        {
+            "kulcsszo": "szem",
+            "jelentesek": [
+                "Nagy szem figyel: önreflexió.",
+                "Sötét szem: titok.",
+                "Több szem: fokozott érzékelés.",
+                "Vak szem: belső vakság."
+            ]
+        },
+        {
+            "kulcsszo": "fa",
+            "jelentesek": [
+                "Nagy fa: erős családi rendszer.",
+                "Kopár fa: energiavesztés.",
+                "Virágzó fa: fejlődés.",
+                "Fa gyökerei: múlt, alapok."
+            ]
+        },
+        {
+            "kulcsszo": "eső",
+            "jelentesek": [
+                "Zápor: érzelmi felszabadulás.",
+                "Viharos eső: elnyomott sírás.",
+                "Szitáló eső: finom lelki tisztulás.",
+                "Esőben sétálni: elfogadás."
+            ]
+        },
+        {
+            "kulcsszo": "teher",
+            "jelentesek": [
+                "Nehéz terhet cipelni: lelki súly.",
+                "Teher letevése: felszabadulás.",
+                "Más terhét vinni: túlzott felelősség.",
+                "Elveszíteni a terhet: kontroll elengedése."
+            ]
+        },
+        {
+            "kulcsszo": "torta",
+            "jelentesek": [
+                "Tortát enni: öröm, jutalom.",
+                "Torta szétmállik: kudarc.",
+                "Tortát sütni: szeretet kifejezése.",
+                "Torta eltűnik: hiányérzet."
+            ]
+        },
+        {
+            "kulcsszo": "árnyék",
+            "jelentesek": [
+                "Furcsa árnyék: elfojtott részek.",
+                "Árnyék követ: trauma.",
+                "Árnyékkal beszélni: integráció.",
+                "Eltűnő árnyék: gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "lámpa",
+            "jelentesek": [
+                "Lámpát meggyújtani: tisztánlátás.",
+                "Kialudt lámpa: kétség.",
+                "Villogó lámpa: figyelmeztetés.",
+                "Fényes lámpa: remény."
+            ]
+        },
+        {
+            "kulcsszo": "kör",
+            "jelentesek": [
+                "Körben járni: ismétlődő minták.",
+                "Kör közepén állni: fókusz.",
+                "Kört rajzolni: védelem.",
+                "Körből kilépni: új irány."
+            ]
+        },
+        {
+            "kulcsszo": "maszk",
+            "jelentesek": [
+                "Maszkot viselni: szerepek.",
+                "Más maszkot visel: bizalmatlanság.",
+                "Maszk leesik: igazság.",
+                "Több maszk: identitásrétegek."
+            ]
+        },
+        {
+            "kulcsszo": "színpad",
+            "jelentesek": [
+                "Színpadon állni: önkifejezés.",
+                "Nézőtér üres: magány.",
+                "Más a színpadon: inspiráció.",
+                "Elhagyni a színpadot: rejtőzködés."
+            ]
+        },
+        {
+            "kulcsszo": "szemüveg",
+            "jelentesek": [
+                "Szemüveget felvenni: tiszta látás.",
+                "Elveszíteni: félreértés.",
+                "Törött szemüveg: önkép torzulása.",
+                "Más szemüvegét viselni: más nézőpont."
+            ]
+        },
+        {
+            "kulcsszo": "tánc",
+            "jelentesek": [
+                "Szabad tánc: öröm, felszabadulás.",
+                "Kényszerű tánc: kontrollvesztés.",
+                "Másokkal táncolni: kapcsolódás.",
+                "Táncot nézni: inspiráció."
+            ]
+        },
+        {
+            "kulcsszo": "szín",
+            "jelentesek": [
+                "Erős színek: intenzív érzelmek.",
+                "Elszíntelenedett világ: depresszió.",
+                "Váltakozó színek: változás.",
+                "Fekete-fehér álom: elhatároltság."
+            ]
+        },
+        {
+            "kulcsszo": "harang",
+            "jelentesek": [
+                "Harang szól: fontos üzenet.",
+                "Harang zúgása: változás közeledik.",
+                "Néma harang: elfojtás.",
+                "Harangot törni: ellenállás."
+            ]
+        },
+        {
+            "kulcsszo": "kristály",
+            "jelentesek": [
+                "Kristály látványa: tisztaság.",
+                "Repedt kristály: lelki törés.",
+                "Kristályt tartani: fókusz.",
+                "Kristállyal kommunikálni: spirituális kapcsolat."
+            ]
+        },
+        {
+            "kulcsszo": "boszorkány",
+            "jelentesek": [
+                "Boszorkány támad: női árnyékenergia.",
+                "Boszorkánnyal beszélni: misztikus tudás.",
+                "Repülő boszorkány: szabadság a sötét oldalon.",
+                "Barátságos boszorkány: gyógyító női erő."
+            ]
+        },
+        {
+            "kulcsszo": "pók",
+            "jelentesek": [
+                "Pók látványa: kreativitás.",
+                "Hálójába ragadni: csapdahelyzet.",
+                "Pókot megölni: félelmek legyőzése.",
+                "Pók védelme: saját határok erősítése."
+            ]
+        },
+        {
+            "kulcsszo": "tojás",
+            "jelentesek": [
+                "Tojás törik: sérülékenység.",
+                "Tojás kikel: új ötlet.",
+                "Sok tojás: bőség.",
+                "Üres tojáshéj: kiüresedett lehetőség."
+            ]
+        },
+        {
+            "kulcsszo": "szív",
+            "jelentesek": [
+                "Lüktető szív: élni akarás.",
+                "Sebes szív: trauma.",
+                "Fénylő szív: szeretet.",
+                "Szív nélkül: érzelmi elzáródás."
+            ]
+        },
+        {},
+        {
+            "kulcsszo": "fog",
+            "jelentesek": [
+                "Fog kihullik: bizonytalanság, hatalomvesztés.",
+                "Egészséges fog: erő, önbizalom.",
+                "Fogfájás: elfojtott düh.",
+                "Fogmosás: tisztulás, újrakezdés."
+            ]
+        },
+        {
+            "kulcsszo": "zuhanás",
+            "jelentesek": [
+                "Zuhanás: kontrollvesztés, félelem.",
+                "Lágy zuhanás: átmenet.",
+                "Zuhanásból felébredni: ébredés szükségessége.",
+                "Mások zuhanása: aggodalom másokért."
+            ]
+        },
+        {
+            "kulcsszo": "meztelen",
+            "jelentesek": [
+                "Meztelenül lenni: kiszolgáltatottság.",
+                "Meztelenül kényelmesen: önelfogadás.",
+                "Mások előtt meztelen: titkok felfedése.",
+                "Meztelenül futni: szabadság."
+            ]
+        },
+        {
+            "kulcsszo": "üldözés",
+            "jelentesek": [
+                "Üldözés: elkerült problémák.",
+                "Üldöző legyőzése: problémamegoldás.",
+                "Ismeretlen üldöző: belső félelem.",
+                "Sikeres menekülés: feloldás."
+            ]
+        },
+        {
+            "kulcsszo": "baba",
+            "jelentesek": [
+                "Baba: új kezdet, ártatlanság.",
+                "Síró baba: elfojtott igények.",
+                "Baba nevelése: felelősség.",
+                "Eltűnt baba: elveszett lehetőség."
+            ]
+        },
+        {
+            "kulcsszo": "ló",
+            "jelentesek": [
+                "Lovagolni: szabadság, erő.",
+                "Vad ló: kontrollálatlan energia.",
+                "Fehér ló: tisztaság.",
+                "Leesés lóról: kudarc."
+            ]
+        },
+        {
+            "kulcsszo": "autó",
+            "jelentesek": [
+                "Autót vezetni: életirányítás.",
+                "Baleset: hirtelen változás.",
+                "Lerobbant autó: akadály.",
+                "Gyors autó: ambíció."
+            ]
+        },
+        {
+            "kulcsszo": "iskola",
+            "jelentesek": [
+                "Iskolában lenni: tanulás, fejlődés.",
+                "Vizsga: tesztelés.",
+                "Régi iskola: múlt feldolgozása.",
+                "Iskola elhagyása: szabadság."
+            ]
+        },
+        {
+            "kulcsszo": "haj",
+            "jelentesek": [
+                "Hajvágás: változás.",
+                "Hosszú haj: erő, vitalitás.",
+                "Kopaszodás: veszteség.",
+                "Színes haj: kreativitás."
+            ]
+        },
+        {
+            "kulcsszo": "ruha",
+            "jelentesek": [
+                "Új ruha: új identitás.",
+                "Régi ruha: múlt.",
+                "Elegáns ruha: siker.",
+                "Piszkos ruha: szégyen."
+            ]
+        },
+        {
+            "kulcsszo": "medve",
+            "jelentesek": [
+                "Medve: belső erő.",
+                "Támadó medve: fenyegetés.",
+                "Barátságos medve: védelem.",
+                "Medve álma: pihenés."
+            ]
+        },
+        {
+            "kulcsszo": "vér",
+            "jelentesek": [
+                "Vérzés: energia veszteség.",
+                "Vér látása: szenvedély.",
+                "Vér adása: áldozat.",
+                "Tiszta vér: vitalitás."
+            ]
+        },
+        {
+            "kulcsszo": "kéz",
+            "jelentesek": [
+                "Kéz: cselekvés.",
+                "Sérült kéz: tehetetlenség.",
+                "Kezet fogni: kapcsolat.",
+                "Tiszta kéz: ártatlanság."
+            ]
+        },
+        {
+            "kulcsszo": "láb",
+            "jelentesek": [
+                "Láb: előrehaladás.",
+                "Sérült láb: akadály.",
+                "Mezítláb: földelés.",
+                "Futó lábak: menekülés."
+            ]
+        },
+        {
+            "kulcsszo": "könyv",
+            "jelentesek": [
+                "Könyv olvasása: tudás.",
+                "Zárt könyv: titkok.",
+                "Égő könyv: tudás elvesztése.",
+                "Új könyv: új fejezet."
+            ]
+        },
+        {
+            "kulcsszo": "óra",
+            "jelentesek": [
+                "Óra: idő múlása.",
+                "Megállt óra: stagnálás.",
+                "Gyors óra: sietség.",
+                "Óra törése: idő vége."
+            ]
+        },
+        {
+            "kulcsszo": "telefon",
+            "jelentesek": [
+                "Telefon cseng: üzenet.",
+                "Nem működő telefon: kommunikációs zavar.",
+                "Telefonálás: kapcsolat.",
+                "Törött telefon: elszigetelődés."
+            ]
+        },
+        {
+            "kulcsszo": "konyha",
+            "jelentesek": [
+                "Konyha: táplálás.",
+                "Rendetlenség konyha: káosz.",
+                "Főzés: teremtés.",
+                "Üres konyha: hiány."
+            ]
+        },
+        {
+            "kulcsszo": "fürdőszoba",
+            "jelentesek": [
+                "Fürdőszoba: tisztulás.",
+                "Piszkos fürdő: elfojtott érzelmek.",
+                "Zuhany: megújulás.",
+                "Fürdőkád: relaxáció."
+            ]
+        },
+        {
+            "kulcsszo": "lift",
+            "jelentesek": [
+                "Lift felfelé: emelkedés.",
+                "Lefelé: tudattalan.",
+                "Beragadt lift: elakadás.",
+                "Zuhanó lift: félelem."
+            ]
+        },
+        {
+            "kulcsszo": "barlang",
+            "jelentesek": [
+                "Barlang: tudattalan mélység.",
+                "Barlangban rejtőzni: védelem.",
+                "Fényes barlang: felfedezés.",
+                "Sötét barlang: félelem."
+            ]
+        },
+        {
+            "kulcsszo": "hegy",
+            "jelentesek": [
+                "Hegyet mászni: kihívás.",
+                "Hegy teteje: siker.",
+                "Hegyomlás: instabilitás."
+            ]
+        },
+        {
+            "kulcsszo": "csont",
+            "jelentesek": [
+                "Csont: alapok, struktúra.",
+                "Törött csont: törés az életben.",
+                "Csontváz: múlt.",
+                "Erős csont: kitartás."
+            ]
+        },
+        {
+            "kulcsszo": "kés",
+            "jelentesek": [
+                "Kés: konfliktus.",
+                "Éles kés: éleslátás.",
+                "Késsel támadás: agresszió.",
+                "Kést adni: veszély."
+            ]
+        },
+        {
+            "kulcsszo": "gyümölcs",
+            "jelentesek": [
+                "Érett gyümölcs: siker.",
+                "Rohadt gyümölcs: csalódás.",
+                "Gyümölcs szedés: lehetőség.",
+                "Fák gyümölcse: bőség."
+            ]
+        },
+        {
+            "kulcsszo": "kenyér",
+            "jelentesek": [
+                "Kenyér: alapvető szükséglet.",
+                "Friss kenyér: új élet.",
+                "Száraz kenyér: szegénység.",
+                "Kenyér osztása: megosztás."
+            ]
+        },
+        {
+            "kulcsszo": "ágy",
+            "jelentesek": [
+                "Ágy: pihenés, intimitás.",
+                "Rendezett ágy: rend.",
+                "Rendetlenség ágy: káosz.",
+                "Ágyban fekvés: gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ablak",
+            "jelentesek": [
+                "already have"
+            ]
+        },
+        {
+            "kulcsszo": "folyó",
+            "jelentesek": [
+                "Folyó: élet folyása.",
+                "Gyors folyó: változás.",
+                "Átúszni folyót: átkelés.",
+                "Folyópart: nyugalom."
+            ]
+        },
+        {
+            "kulcsszo": "hegy",
+            "jelentesek": [
+                "Hegyet mászni: kihívások.",
+                "Hegy tetején: siker.",
+                "Hegyről le: pihenés."
+            ]
+        },
+        {
+            "kulcsszo": "nap",
+            "jelentesek": [
+                "Nap: tudatosság.",
+                "Napfény: remény.",
+                "Napfogyatkozás: árnyék.",
+                "Forró nap: szenvedély."
+            ]
+        },
+        {
+            "kulcsszo": "csillag",
+            "jelentesek": [
+                "Csillag: remény.",
+                "Hullócsillag: kívánság.",
+                "Sok csillag: inspiráció.",
+                "Eltűnő csillag: veszteség."
+            ]
+        },
+        {
+            "kulcsszo": "kereszt",
+            "jelentesek": [
+                "Kereszt: áldozat.",
+                "Keresztút: döntés.",
+                "Keresztény szimbólum: hit.",
+                "Fordított kereszt: árnyék."
+            ]
+        },
+        {
+            "kulcsszo": "sír",
+            "jelentesek": [
+                "Sír: lezárás.",
+                "Üres sír: újjászületés.",
+                "Sír ásás: múlt eltemetése.",
+                "Sírnál állni: gyász."
+            ]
+        },
+        {
+            "kulcsszo": "kert",
+            "jelentesek": [
+                "Kert: belső világ.",
+                "Virágzó kert: fejlődés.",
+                "Elhanyagolt kert: elhanyagolás.",
+                "Kertészkedés: gondozás."
+            ]
+        },
+        {
+            "kulcsszo": "labda",
+            "jelentesek": [
+                "Labda: játék.",
+                "Guruló labda: mozgás.",
+                "Elveszett labda: veszteség.",
+                "Játék labdával: öröm."
+            ]
+        },
+        {
+            "kulcsszo": "zene",
+            "jelentesek": [
+                "Zene hallgatása: harmónia.",
+                "Zenélni: kifejezés.",
+                "Hangos zene: izgalom.",
+                "Néma zene: elhallgatás."
+            ]
+        },
+        {
+            "kulcsszo": "tánc",
+            "jelentesek": [
+                "already have"
+            ]
+        },
+        {
+            "kulcsszo": "álom",
+            "jelentesek": [
+                "Álomban lenni: tudattalan.",
+                "Lucid álom: kontroll.",
+                "Rémálom: félelem.",
+                "Szép álom: remény."
+            ]
+        },
+        {
+            "kulcsszo": "tükör",
+            "jelentesek": [
+                "already have"
+            ]
+        },
+        {
+            "kulcsszo": "kapu",
+            "jelentesek": [
+                "already have"
+            ]
+        },
+        {
+            "kulcsszo": "elefánt",
+            "jelentesek": [
+                "Elefánt megjelenése: fontos jel.",
+                "Interakció elefánt-sal: belső folyamat.",
+                "Negatív elefánt: kihívás, félelem.",
+                "Pozitív elefánt: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "oroszlán",
+            "jelentesek": [
+                "Oroszlán megjelenése: fontos jel.",
+                "Interakció oroszlán-sal: belső folyamat.",
+                "Negatív oroszlán: kihívás, félelem.",
+                "Pozitív oroszlán: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "bagoly",
+            "jelentesek": [
+                "Bagoly megjelenése: fontos jel.",
+                "Interakció bagoly-sal: belső folyamat.",
+                "Negatív bagoly: kihívás, félelem.",
+                "Pozitív bagoly: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "róka",
+            "jelentesek": [
+                "Róka megjelenése: fontos jel.",
+                "Interakció róka-sal: belső folyamat.",
+                "Negatív róka: kihívás, félelem.",
+                "Pozitív róka: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "nyúl",
+            "jelentesek": [
+                "Nyúl megjelenése: fontos jel.",
+                "Interakció nyúl-sal: belső folyamat.",
+                "Negatív nyúl: kihívás, félelem.",
+                "Pozitív nyúl: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "tehén",
+            "jelentesek": [
+                "Tehén megjelenése: fontos jel.",
+                "Interakció tehén-sal: belső folyamat.",
+                "Negatív tehén: kihívás, félelem.",
+                "Pozitív tehén: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "kecske",
+            "jelentesek": [
+                "Kecske megjelenése: fontos jel.",
+                "Interakció kecske-sal: belső folyamat.",
+                "Negatív kecske: kihívás, félelem.",
+                "Pozitív kecske: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "halott",
+            "jelentesek": [
+                "Halott megjelenése: fontos jel.",
+                "Interakció halott-sal: belső folyamat.",
+                "Negatív halott: kihívás, félelem.",
+                "Pozitív halott: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "születés",
+            "jelentesek": [
+                "Születés megjelenése: fontos jel.",
+                "Interakció születés-sal: belső folyamat.",
+                "Negatív születés: kihívás, félelem.",
+                "Pozitív születés: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "házasság",
+            "jelentesek": [
+                "Házasság megjelenése: fontos jel.",
+                "Interakció házasság-sal: belső folyamat.",
+                "Negatív házasság: kihívás, félelem.",
+                "Pozitív házasság: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "esküvő",
+            "jelentesek": [
+                "Esküvő megjelenése: fontos jel.",
+                "Interakció esküvő-sal: belső folyamat.",
+                "Negatív esküvő: kihívás, félelem.",
+                "Pozitív esküvő: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "temetés",
+            "jelentesek": [
+                "Temetés megjelenése: fontos jel.",
+                "Interakció temetés-sal: belső folyamat.",
+                "Negatív temetés: kihívás, félelem.",
+                "Pozitív temetés: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ünnep",
+            "jelentesek": [
+                "Ünnep megjelenése: fontos jel.",
+                "Interakció ünnep-sal: belső folyamat.",
+                "Negatív ünnep: kihívás, félelem.",
+                "Pozitív ünnep: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "buli",
+            "jelentesek": [
+                "Buli megjelenése: fontos jel.",
+                "Interakció buli-sal: belső folyamat.",
+                "Negatív buli: kihívás, félelem.",
+                "Pozitív buli: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "barát",
+            "jelentesek": [
+                "Barát megjelenése: fontos jel.",
+                "Interakció barát-sal: belső folyamat.",
+                "Negatív barát: kihívás, félelem.",
+                "Pozitív barát: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ellenség",
+            "jelentesek": [
+                "Ellenség megjelenése: fontos jel.",
+                "Interakció ellenség-sal: belső folyamat.",
+                "Negatív ellenség: kihívás, félelem.",
+                "Pozitív ellenség: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szülő",
+            "jelentesek": [
+                "Szülő megjelenése: fontos jel.",
+                "Interakció szülő-sal: belső folyamat.",
+                "Negatív szülő: kihívás, félelem.",
+                "Pozitív szülő: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "testvér",
+            "jelentesek": [
+                "Testvér megjelenése: fontos jel.",
+                "Interakció testvér-sal: belső folyamat.",
+                "Negatív testvér: kihívás, félelem.",
+                "Pozitív testvér: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szerető",
+            "jelentesek": [
+                "Szerető megjelenése: fontos jel.",
+                "Interakció szerető-sal: belső folyamat.",
+                "Negatív szerető: kihívás, félelem.",
+                "Pozitív szerető: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "főnök",
+            "jelentesek": [
+                "Főnök megjelenése: fontos jel.",
+                "Interakció főnök-sal: belső folyamat.",
+                "Negatív főnök: kihívás, félelem.",
+                "Pozitív főnök: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "munka",
+            "jelentesek": [
+                "Munka megjelenése: fontos jel.",
+                "Interakció munka-sal: belső folyamat.",
+                "Negatív munka: kihívás, félelem.",
+                "Pozitív munka: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "utazás",
+            "jelentesek": [
+                "Utazás megjelenése: fontos jel.",
+                "Interakció utazás-sal: belső folyamat.",
+                "Negatív utazás: kihívás, félelem.",
+                "Pozitív utazás: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "repülő",
+            "jelentesek": [
+                "Repülő megjelenése: fontos jel.",
+                "Interakció repülő-sal: belső folyamat.",
+                "Negatív repülő: kihívás, félelem.",
+                "Pozitív repülő: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "hajó",
+            "jelentesek": [
+                "Hajó megjelenése: fontos jel.",
+                "Interakció hajó-sal: belső folyamat.",
+                "Negatív hajó: kihívás, félelem.",
+                "Pozitív hajó: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "bicikli",
+            "jelentesek": [
+                "Bicikli megjelenése: fontos jel.",
+                "Interakció bicikli-sal: belső folyamat.",
+                "Negatív bicikli: kihívás, félelem.",
+                "Pozitív bicikli: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "futás",
+            "jelentesek": [
+                "Futás megjelenése: fontos jel.",
+                "Interakció futás-sal: belső folyamat.",
+                "Negatív futás: kihívás, félelem.",
+                "Pozitív futás: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "séta",
+            "jelentesek": [
+                "Séta megjelenése: fontos jel.",
+                "Interakció séta-sal: belső folyamat.",
+                "Negatív séta: kihívás, félelem.",
+                "Pozitív séta: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ugrás",
+            "jelentesek": [
+                "Ugrás megjelenése: fontos jel.",
+                "Interakció ugrás-sal: belső folyamat.",
+                "Negatív ugrás: kihívás, félelem.",
+                "Pozitív ugrás: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "úszás",
+            "jelentesek": [
+                "Úszás megjelenése: fontos jel.",
+                "Interakció úszás-sal: belső folyamat.",
+                "Negatív úszás: kihívás, félelem.",
+                "Pozitív úszás: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "völgy",
+            "jelentesek": [
+                "Völgy megjelenése: fontos jel.",
+                "Interakció völgy-sal: belső folyamat.",
+                "Negatív völgy: kihívás, félelem.",
+                "Pozitív völgy: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "sivatag",
+            "jelentesek": [
+                "Sivatag megjelenése: fontos jel.",
+                "Interakció sivatag-sal: belső folyamat.",
+                "Negatív sivatag: kihívás, félelem.",
+                "Pozitív sivatag: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "dzsungel",
+            "jelentesek": [
+                "Dzsungel megjelenése: fontos jel.",
+                "Interakció dzsungel-sal: belső folyamat.",
+                "Negatív dzsungel: kihívás, félelem.",
+                "Pozitív dzsungel: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "sár",
+            "jelentesek": [
+                "Sár megjelenése: fontos jel.",
+                "Interakció sár-sal: belső folyamat.",
+                "Negatív sár: kihívás, félelem.",
+                "Pozitív sár: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "jég",
+            "jelentesek": [
+                "Jég megjelenése: fontos jel.",
+                "Interakció jég-sal: belső folyamat.",
+                "Negatív jég: kihívás, félelem.",
+                "Pozitív jég: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "hó",
+            "jelentesek": [
+                "Hó megjelenése: fontos jel.",
+                "Interakció hó-sal: belső folyamat.",
+                "Negatív hó: kihívás, félelem.",
+                "Pozitív hó: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "vihar",
+            "jelentesek": [
+                "Vihar megjelenése: fontos jel.",
+                "Interakció vihar-sal: belső folyamat.",
+                "Negatív vihar: kihívás, félelem.",
+                "Pozitív vihar: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szivárvány",
+            "jelentesek": [
+                "Szivárvány megjelenése: fontos jel.",
+                "Interakció szivárvány-sal: belső folyamat.",
+                "Negatív szivárvány: kihívás, félelem.",
+                "Pozitív szivárvány: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "felhő",
+            "jelentesek": [
+                "Felhő megjelenése: fontos jel.",
+                "Interakció felhő-sal: belső folyamat.",
+                "Negatív felhő: kihívás, félelem.",
+                "Pozitív felhő: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "köd",
+            "jelentesek": [
+                "Köd megjelenése: fontos jel.",
+                "Interakció köd-sal: belső folyamat.",
+                "Negatív köd: kihívás, félelem.",
+                "Pozitív köd: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "füst",
+            "jelentesek": [
+                "Füst megjelenése: fontos jel.",
+                "Interakció füst-sal: belső folyamat.",
+                "Negatív füst: kihívás, félelem.",
+                "Pozitív füst: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "por",
+            "jelentesek": [
+                "Por megjelenése: fontos jel.",
+                "Interakció por-sal: belső folyamat.",
+                "Negatív por: kihívás, félelem.",
+                "Pozitív por: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "arany",
+            "jelentesek": [
+                "Arany megjelenése: fontos jel.",
+                "Interakció arany-sal: belső folyamat.",
+                "Negatív arany: kihívás, félelem.",
+                "Pozitív arany: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ékszer",
+            "jelentesek": [
+                "Ékszer megjelenése: fontos jel.",
+                "Interakció ékszer-sal: belső folyamat.",
+                "Negatív ékszer: kihívás, félelem.",
+                "Pozitív ékszer: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "gyűrű",
+            "jelentesek": [
+                "Gyűrű megjelenése: fontos jel.",
+                "Interakció gyűrű-sal: belső folyamat.",
+                "Negatív gyűrű: kihívás, félelem.",
+                "Pozitív gyűrű: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "nyaklánc",
+            "jelentesek": [
+                "Nyaklánc megjelenése: fontos jel.",
+                "Interakció nyaklánc-sal: belső folyamat.",
+                "Negatív nyaklánc: kihívás, félelem.",
+                "Pozitív nyaklánc: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "naptár",
+            "jelentesek": [
+                "Naptár megjelenése: fontos jel.",
+                "Interakció naptár-sal: belső folyamat.",
+                "Negatív naptár: kihívás, félelem.",
+                "Pozitív naptár: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "térkép",
+            "jelentesek": [
+                "Térkép megjelenése: fontos jel.",
+                "Interakció térkép-sal: belső folyamat.",
+                "Negatív térkép: kihívás, félelem.",
+                "Pozitív térkép: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "útlevél",
+            "jelentesek": [
+                "Útlevél megjelenése: fontos jel.",
+                "Interakció útlevél-sal: belső folyamat.",
+                "Negatív útlevél: kihívás, félelem.",
+                "Pozitív útlevél: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "fal",
+            "jelentesek": [
+                "Fal megjelenése: fontos jel.",
+                "Interakció fal-sal: belső folyamat.",
+                "Negatív fal: kihívás, félelem.",
+                "Pozitív fal: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "tető",
+            "jelentesek": [
+                "Tető megjelenése: fontos jel.",
+                "Interakció tető-sal: belső folyamat.",
+                "Negatív tető: kihívás, félelem.",
+                "Pozitív tető: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "padló",
+            "jelentesek": [
+                "Padló megjelenése: fontos jel.",
+                "Interakció padló-sal: belső folyamat.",
+                "Negatív padló: kihívás, félelem.",
+                "Pozitív padló: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "alagút",
+            "jelentesek": [
+                "Alagút megjelenése: fontos jel.",
+                "Interakció alagút-sal: belső folyamat.",
+                "Negatív alagút: kihívás, félelem.",
+                "Pozitív alagút: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "tó",
+            "jelentesek": [
+                "Tó megjelenése: fontos jel.",
+                "Interakció tó-sal: belső folyamat.",
+                "Negatív tó: kihívás, félelem.",
+                "Pozitív tó: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "óceán",
+            "jelentesek": [
+                "Óceán megjelenése: fontos jel.",
+                "Interakció óceán-sal: belső folyamat.",
+                "Negatív óceán: kihívás, félelem.",
+                "Pozitív óceán: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "sziget",
+            "jelentesek": [
+                "Sziget megjelenése: fontos jel.",
+                "Interakció sziget-sal: belső folyamat.",
+                "Negatív sziget: kihívás, félelem.",
+                "Pozitív sziget: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "mező",
+            "jelentesek": [
+                "Mező megjelenése: fontos jel.",
+                "Interakció mező-sal: belső folyamat.",
+                "Negatív mező: kihívás, félelem.",
+                "Pozitív mező: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "bokor",
+            "jelentesek": [
+                "Bokor megjelenése: fontos jel.",
+                "Interakció bokor-sal: belső folyamat.",
+                "Negatív bokor: kihívás, félelem.",
+                "Pozitív bokor: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "gyökér",
+            "jelentesek": [
+                "Gyökér megjelenése: fontos jel.",
+                "Interakció gyökér-sal: belső folyamat.",
+                "Negatív gyökér: kihívás, félelem.",
+                "Pozitív gyökér: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "levél",
+            "jelentesek": [
+                "Levél megjelenése: fontos jel.",
+                "Interakció levél-sal: belső folyamat.",
+                "Negatív levél: kihívás, félelem.",
+                "Pozitív levél: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "zöldség",
+            "jelentesek": [
+                "Zöldség megjelenése: fontos jel.",
+                "Interakció zöldség-sal: belső folyamat.",
+                "Negatív zöldség: kihívás, félelem.",
+                "Pozitív zöldség: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "étel",
+            "jelentesek": [
+                "Étel megjelenése: fontos jel.",
+                "Interakció étel-sal: belső folyamat.",
+                "Negatív étel: kihívás, félelem.",
+                "Pozitív étel: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ital",
+            "jelentesek": [
+                "Ital megjelenése: fontos jel.",
+                "Interakció ital-sal: belső folyamat.",
+                "Negatív ital: kihívás, félelem.",
+                "Pozitív ital: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "bor",
+            "jelentesek": [
+                "Bor megjelenése: fontos jel.",
+                "Interakció bor-sal: belső folyamat.",
+                "Negatív bor: kihívás, félelem.",
+                "Pozitív bor: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "sör",
+            "jelentesek": [
+                "Sör megjelenése: fontos jel.",
+                "Interakció sör-sal: belső folyamat.",
+                "Negatív sör: kihívás, félelem.",
+                "Pozitív sör: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "kávé",
+            "jelentesek": [
+                "Kávé megjelenése: fontos jel.",
+                "Interakció kávé-sal: belső folyamat.",
+                "Negatív kávé: kihívás, félelem.",
+                "Pozitív kávé: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "tea",
+            "jelentesek": [
+                "Tea megjelenése: fontos jel.",
+                "Interakció tea-sal: belső folyamat.",
+                "Negatív tea: kihívás, félelem.",
+                "Pozitív tea: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "cigaretta",
+            "jelentesek": [
+                "Cigaretta megjelenése: fontos jel.",
+                "Interakció cigaretta-sal: belső folyamat.",
+                "Negatív cigaretta: kihívás, félelem.",
+                "Pozitív cigaretta: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "gyógyszer",
+            "jelentesek": [
+                "Gyógyszer megjelenése: fontos jel.",
+                "Interakció gyógyszer-sal: belső folyamat.",
+                "Negatív gyógyszer: kihívás, félelem.",
+                "Pozitív gyógyszer: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "kórház",
+            "jelentesek": [
+                "Kórház megjelenése: fontos jel.",
+                "Interakció kórház-sal: belső folyamat.",
+                "Negatív kórház: kihívás, félelem.",
+                "Pozitív kórház: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "orvos",
+            "jelentesek": [
+                "Orvos megjelenése: fontos jel.",
+                "Interakció orvos-sal: belső folyamat.",
+                "Negatív orvos: kihívás, félelem.",
+                "Pozitív orvos: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "betegség",
+            "jelentesek": [
+                "Betegség megjelenése: fontos jel.",
+                "Interakció betegség-sal: belső folyamat.",
+                "Negatív betegség: kihívás, félelem.",
+                "Pozitív betegség: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "gyógyulás",
+            "jelentesek": [
+                "Gyógyulás megjelenése: fontos jel.",
+                "Interakció gyógyulás-sal: belső folyamat.",
+                "Negatív gyógyulás: kihívás, félelem.",
+                "Pozitív gyógyulás: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szellem",
+            "jelentesek": [
+                "Szellem megjelenése: fontos jel.",
+                "Interakció szellem-sal: belső folyamat.",
+                "Negatív szellem: kihívás, félelem.",
+                "Pozitív szellem: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "angyal",
+            "jelentesek": [
+                "Angyal megjelenése: fontos jel.",
+                "Interakció angyal-sal: belső folyamat.",
+                "Negatív angyal: kihívás, félelem.",
+                "Pozitív angyal: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "ördög",
+            "jelentesek": [
+                "Ördög megjelenése: fontos jel.",
+                "Interakció ördög-sal: belső folyamat.",
+                "Negatív ördög: kihívás, félelem.",
+                "Pozitív ördög: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "isten",
+            "jelentesek": [
+                "Isten megjelenése: fontos jel.",
+                "Interakció isten-sal: belső folyamat.",
+                "Negatív isten: kihívás, félelem.",
+                "Pozitív isten: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "imádság",
+            "jelentesek": [
+                "Imádság megjelenése: fontos jel.",
+                "Interakció imádság-sal: belső folyamat.",
+                "Negatív imádság: kihívás, félelem.",
+                "Pozitív imádság: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "meditáció",
+            "jelentesek": [
+                "Meditáció megjelenése: fontos jel.",
+                "Interakció meditáció-sal: belső folyamat.",
+                "Negatív meditáció: kihívás, félelem.",
+                "Pozitív meditáció: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "jóga",
+            "jelentesek": [
+                "Jóga megjelenése: fontos jel.",
+                "Interakció jóga-sal: belső folyamat.",
+                "Negatív jóga: kihívás, félelem.",
+                "Pozitív jóga: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "energia",
+            "jelentesek": [
+                "Energia megjelenése: fontos jel.",
+                "Interakció energia-sal: belső folyamat.",
+                "Negatív energia: kihívás, félelem.",
+                "Pozitív energia: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "csakra",
+            "jelentesek": [
+                "Csakra megjelenése: fontos jel.",
+                "Interakció csakra-sal: belső folyamat.",
+                "Negatív csakra: kihívás, félelem.",
+                "Pozitív csakra: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "aura",
+            "jelentesek": [
+                "Aura megjelenése: fontos jel.",
+                "Interakció aura-sal: belső folyamat.",
+                "Negatív aura: kihívás, félelem.",
+                "Pozitív aura: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "rémálom",
+            "jelentesek": [
+                "Rémálom megjelenése: fontos jel.",
+                "Interakció rémálom-sal: belső folyamat.",
+                "Negatív rémálom: kihívás, félelem.",
+                "Pozitív rémálom: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "lucid",
+            "jelentesek": [
+                "Lucid megjelenése: fontos jel.",
+                "Interakció lucid-sal: belső folyamat.",
+                "Negatív lucid: kihívás, félelem.",
+                "Pozitív lucid: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "tudat",
+            "jelentesek": [
+                "Tudat megjelenése: fontos jel.",
+                "Interakció tudat-sal: belső folyamat.",
+                "Negatív tudat: kihívás, félelem.",
+                "Pozitív tudat: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "öntudat",
+            "jelentesek": [
+                "Öntudat megjelenése: fontos jel.",
+                "Interakció öntudat-sal: belső folyamat.",
+                "Negatív öntudat: kihívás, félelem.",
+                "Pozitív öntudat: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "félelem",
+            "jelentesek": [
+                "Félelem megjelenése: fontos jel.",
+                "Interakció félelem-sal: belső folyamat.",
+                "Negatív félelem: kihívás, félelem.",
+                "Pozitív félelem: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "öröm",
+            "jelentesek": [
+                "Öröm megjelenése: fontos jel.",
+                "Interakció öröm-sal: belső folyamat.",
+                "Negatív öröm: kihívás, félelem.",
+                "Pozitív öröm: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szomorúság",
+            "jelentesek": [
+                "Szomorúság megjelenése: fontos jel.",
+                "Interakció szomorúság-sal: belső folyamat.",
+                "Negatív szomorúság: kihívás, félelem.",
+                "Pozitív szomorúság: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "düh",
+            "jelentesek": [
+                "Düh megjelenése: fontos jel.",
+                "Interakció düh-sal: belső folyamat.",
+                "Negatív düh: kihívás, félelem.",
+                "Pozitív düh: növekedés, gyógyulás."
+            ]
+        },
+        {
+            "kulcsszo": "szeretet",
+            "jelentesek": [
+                "Szeretet megjelenése: fontos jel.",
+                "Interakció szeretet-sal: belső folyamat.",
+                "Negatív szeretet: kihívás, félelem.",
+                "Pozitív szeretet: növekedés, gyógyulás."
+            ]
+        }
+    ]
+}

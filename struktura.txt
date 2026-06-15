@@ -1,0 +1,7 @@
+napiajánló/
+├── main.py             <-- A fő kód (ez indítja be a botot a tokennel)
+├── tithi_ajánlások.xlsx<-- A Tithi adatbázisod
+├── yantra/             <-- A Yantra képek mappája
+└── cogs/               <-- EBBEN A MAPPÁBAN LESZNEK A KÜLÖN FUNKCIÓK
+    ├── utravalo.py     <-- Ide megy a mostani /hold és /yantra parancsod
+    └── dreamy.py       <-- Ide megy az álomfejtő /álom parancs

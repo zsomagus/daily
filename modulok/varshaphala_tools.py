@@ -4,16 +4,28 @@ import pendulum
 import swisseph as swe
 from modulok import astro_core
 
+# modulok/varshaphala_tools.py
+
+import pendulum
+import swisseph as swe
+from modulok import astro_core
+
 def get_sun_sidereal_longitude(dt_utc):
     """Visszaadja a Nap sziderikus hosszúságát Swiss Ephemeris alapján."""
     jd = swe.julday(dt_utc.year, dt_utc.month, dt_utc.day,
                     dt_utc.hour + dt_utc.minute/60 + dt_utc.second/3600)
 
     swe.set_sid_mode(swe.SIDM_LAHIRI)
-    lon, lat, dist, speed = swe.calc_ut(jd, swe.SUN)
+    
+    # 1. Lekérjük a Swiss Ephemeris adatait (Visszatérési érték: egy tömb és egy flag)
+    calc_res, ret_flag = swe.calc_ut(jd, swe.SUN)
+    
+    # 2. Kicsomagoljuk a hosszúsági fokot (a calc_res tömb legelső, 0. indexű eleme)
+    lon = calc_res[0]
+    
+    # 3. Lekérjük az ayanamsát, majd kiszámoljuk a sziderikus pozíciót
     ayan = swe.get_ayanamsa(jd)
     return (lon - ayan) % 360
-
 
 def find_solar_return_datetime(birth_dt, age, lat, lon):
     """

@@ -21,11 +21,17 @@ aktualis_vezeteknev = ""
 aktualis_keresztnev = ""
 
 # Mentési/forrás fájlok
-peoples_data_file = "saved_persons.json"
-excel_file = "asztrológiai_adatbázis.xlsx"
-koord1_file = "file1.xlsx"
-koord2_file = "file2.xlsx"
+peoples_data_file = BASE_DIR /"static" / "saved_persons.json"
+excel_file = BASE_DIR / "static" / "asztrológiai_adatbázis.xlsx"
 
+# Ha a file1.xlsx és file2.xlsx a static mappában vannak:
+koord1_file = BASE_DIR / "static" / "file1.xlsx"
+koord2_file = BASE_DIR / "static" / "file2.xlsx"
+
+# MEGJEGYZÉS: Ha NEM a static mappában, hanem közvetlenül a főmappában hagytad őket, 
+# akkor használd ezt a két sort helyette:
+# koord1_file = BASE_DIR / "file1.xlsx"
+# koord2_file = BASE_DIR / "file2.xlsx"
 excel_path = BASE_DIR / "static" / "asztrológiai_adatbázis.xlsx"
 jegyek_df = pd.read_excel(excel_path, sheet_name="Jegyek")
 hazak_df = pd.read_excel(excel_path, sheet_name="Házak")
@@ -37,7 +43,7 @@ logger.setLevel(logging.INFO)
 
 # Konfigurációs szótár
 config_dict = {
-    "json_path": STATIC_DIR / "mentett_adatok.json",
+    "json_path": STATIC_DIR / "saved_persons.json",
     "mantra_dir": STATIC_DIR / "mantrák",
     "celeste_dir": BASE_DIR / "static" / "hangok" / "cseleszt.wav",
 
@@ -61,8 +67,8 @@ def get_coordinates(
     Városnév alapján koordináták keresése két Excel fájlban.
     """
     try:
-        df1 = pd.read_excel(file1)
-        df2 = pd.read_excel(file2)
+        df1 = pd.read_excel(str(file1))
+        df2 = pd.read_excel(str(file2))
         df = pd.concat([df1, df2], ignore_index=True)
 
         city_name_lower = city_name.strip().lower()

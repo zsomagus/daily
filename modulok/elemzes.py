@@ -18,7 +18,7 @@ from modulok.config import BASE_DIR
 from modulok import astro_core
 from modulok.visuals import generate_visuals_from_summary
 from modulok.tables import haz_aspektusok, haz_bolygo_aspektusok
-from modulok.terkep import generate_karmic_map_svg
+from modulok.terkep import redraw_map
 # -------------------------------------------------------------------
 # Alap beállítások
 # -------------------------------------------------------------------
@@ -280,39 +280,27 @@ def save_analysis_audio(text, meta):
     # egyszerűbb, természetesebb hangzás: mondatközi szünetekhez a szövegben is lehet pontokat, sortöréseket használni
     engine.save_to_file(text, filename)
     engine.runAndWait()
+    engine = pyttsx3.init()
+    
+    # KIKERESSÜK A MAGYAR HANGOT A WINDOWSBÓL
+    voices = engine.getProperty('voices')
+    for voice in voices:
+        if "hungarian" in voice.name.lower() or "hu-HU" in voice.id:
+            engine.setProperty('voice', voice.id)
+            break
     return filename
 
 # -------------------------------------------------------------------
 # Horoszkóp kép generálása (Rashi + yantra)
 # -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Horoszkóp kép generálása (Rashi + yantra)
+# -------------------------------------------------------------------
 
 def generate_chart_image(chart, meta):
-    """
-    Itt feltételezzük, hogy van egy rajzoló függvényed, ami PNG-t készít.
-    Pl.: modulok.visuals.rajzol_del_indiai_horoszkop_svg vagy hasonló.
-    Itt csak egy egységes wrapper-t adunk.
-    """
-    from modulok.visuals import rajzol_del_indiai_horoszkop_svg
+    
 
-    planets = chart.get("planets", {})
-    tithi = chart.get("tithi", 1)
-
-    image_name = f"{meta.get('vezeteknev','').lower()}_{meta.get('keresztnev','').lower()}_horoszkop_{meta.get('horoszkop_nev','D1')}.png"
-    image_path = os.path.join(OUTPUT_DIR, image_name)
-
-    rajzol_del_indiai_horoszkop_svg(
-        planets,
-        tithi,
-        horoszkop_nev=meta.get("horoszkop_nev", "D1"),
-        date_str=meta.get("date_str"),
-        time_str=meta.get("time_str"),
-        vezeteknev=meta.get("vezeteknev"),
-        keresztnev=meta.get("keresztnev"),
-        is_prashna=meta.get("is_prashna", False),
-        output_path=image_path,
-    )
-
-    return image_path
+    return None
 
 # -------------------------------------------------------------------
 # Fő belépő – teljes elemzés generálása egy gombnyomásra
@@ -343,16 +331,17 @@ def generate_full_analysis(
     year, month, day = local_dt.year, local_dt.month, local_dt.day
     hour, minute = local_dt.hour, local_dt.minute
 
-    # 2) Astro_core chart generálás
+# modulok/elemzes.py -> kb. 350. sor
+    # JAVÍTVA: A függvény valódi argumentumneveit (latitude, longitude) alakítjuk float-tá!
     chart = astro_core.generate_chart(
         name=f"{keresztnev} {vezeteknev}",
-        year=year,
-        month=month,
-        day=day,
-        hour=hour,
-        minute=minute,
-        lat=latitude,
-        lng=longitude,
+        year=local_dt.year,
+        month=local_dt.month,
+        day=local_dt.day,
+        hour=local_dt.hour,
+        minute=local_dt.minute,
+        lat=float(latitude),   # 👈 latitude_str helyett simán latitude!
+        lng=float(longitude),  # 👈 longitude_str helyett simán longitude!
     )
 
     # 3) Meta adatok
@@ -430,7 +419,7 @@ def generate_varshaphala_forecast_block(varsha_data, age: int):
     return md
 
     # miután megvan a chart + meta:
-    map_path = generate_karmic_map_svg(chart, meta)
+    map_path = redraw_map(chart, meta)
     print("Karmikus térkép:", map_path)
 
 # Egyszerű teszt
