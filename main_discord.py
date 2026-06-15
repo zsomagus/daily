@@ -16,11 +16,15 @@ class KözösségiBot(commands.Bot):
         # Automatikusan betöltünk minden Python fájlt a cogs mappából
         for filename in os.listdir("./cogs"):
             if filename.endswith(".py"):
-                await self.load_extension(f"cogs.{filename[:-3]}")
-                print(f"⚙️ {filename} sikeresen betöltve!")
-        
+                try:
+                    await self.load_extension(f"cogs.{filename[:-3]}")
+                    print(f"⚙️ {filename} sikeresen betöltve!")
+                except Exception as e:
+                    print(f"❌ Hiba a {filename} betöltésekor: {e}")
+
         # Szinkronizáljuk a Slash (/) parancsokat a Discorddal
         await self.tree.sync()
+
 
     async def on_ready(self):
         print(f"✨ A bot online! Név: {self.user.name}")
