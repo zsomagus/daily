@@ -21,4 +21,3 @@ svgwrite==1.4.3
 timezonefinder==8.2.4
 pyswisseph
 svgwrite
-cairosvg
