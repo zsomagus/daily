@@ -3,29 +3,23 @@ import pendulum
 # Lokális import vagy meglévő astro_core használata
 from modulok import astro_core
 
+# modulok/prashna_core.py
+import pendulum
+
 def get_current_prashna_data(latitude: float = 47.30, longitude: float = 19.05):
     """
-    Kiszámolja a Prashna (pillanatnyi kérdés) horoszkóp adatait a megadott koordinátákra.
-    Nem rajzol, csak tiszta adatot ad vissza!
+    Lekéri a Prashna (pillanatnyi kérdés) aktuális idő- és helyadatait.
+    Nem számol fix horoszkópot, hogy a GUI-ban a Varga váltó szabadon működhessen!
     """
     now = pendulum.now("Europe/Budapest")
 
-    date_str = now.format("YYYY-MM-DD")
-    time_str = now.format("HH:mm")
-
-    # Lekérjük az asztrológiai adatokat az alap motoron keresztül
-    res = astro_core.get_varga_chart_data(
-        year=now.year,
-        month=now.month,
-        day=now.day,
-        hour=now.hour,
-        minute=now.minute,
-        lat=latitude,
-        lon=longitude,
-        timezone_offset=now.utcoffset().total_seconds() / 3600,
-        varga_label="D1 (Rashi)"
-    )
-
+    return {
+        "date": now.format("YYYY-MM-DD"),
+        "time": now.format("HH:mm"),
+        "latitude": latitude,
+        "longitude": longitude,
+        "tz_offset": now.utcoffset().total_seconds() / 3600
+    }
    # Ha a prashna_core-ban van egy függvény, ami a planet_data-ból dolgozik, 
 # így kell megjavítani, hogy az Ayanamsát levonva számoljon, HA a res-ben nincs benne:
 

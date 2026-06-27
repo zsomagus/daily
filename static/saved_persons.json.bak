@@ -24,6 +24,7 @@
         "name": "Mahatma Gandhi",
         "birth_date": "1869-10-02 00:00:00:00",
         "latitude": 21.38,
+        "longitude": 69.36,
         "timezone_offset": 1.0
     },
     "Pandit Sanjay Rath": {

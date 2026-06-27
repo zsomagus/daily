@@ -11,7 +11,20 @@ from modulok.settings import SWEPH_PATH, check_sweph_files
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "..", "static")
+# modulok/astro_core.py teteje felé (a meglévők alá)
 
+# FIX TESZTSZEMÉLY ADATAI A HANGMODUL KÖZVETLEN TESZTELÉSÉHEZ
+TESZT_SZEMELY = {
+    "name": "Zsombor",
+    "year": 1976,
+    "month": 3,
+    "day": 15,
+    "hour": 21,
+    "minute": 53,
+    "lat": 47.2954,
+    "lng": 19.0227,
+    "tz_offset": 1
+}
 def set_swe_path():
     swe.set_ephe_path(SWEPH_PATH)
     print("SwissEph path set:", SWEPH_PATH)
@@ -157,14 +170,34 @@ def compute_varga(lon_sid, varga_code):
 # ---------------------------------------------------------
 # 6) Teljes képlet generálása (D1)
 # ---------------------------------------------------------
+# ---------------- 6) Teljes képlet generálása (D1) ----------------
 def generate_chart(name, year, month, day, hour, minute, lat, lng):
     set_swe_path()
 
+    # --- ULTRA DEBUG ÉS AUTOMATIKUS JAVÍTÁS ---
+    print(f"[ASTRO_CORE BEÉRKEZŐ NYERS ADATOK] year={year}, month={month}, day={day}")
+    
+    if int(float(month)) > 12 and int(float(day)) <= 12:
+        print("   [ASTRO_CORE RIASZTÁS]: A hónap és a nap fel van cserélve! Automatikusan megfordítom...")
+        temp = month
+        month = day
+        day = temp
+
+    clean_year = int(float(year))
+    clean_month = int(float(month))
+    clean_day = int(float(day))
+    clean_hour = int(float(hour))
+    clean_minute = int(float(minute))
+    
+    print(f"[ASTRO_CORE TISZTÍTOTT ADATOK] year={clean_year}, month={clean_month}, day={clean_day}")
+
+    # 🔥 IDŐZÓNA MEGHATÁROZÁSA (Áttéve ide, a localize ELÉ!)
     tz = pytz.timezone("Europe/Budapest")
-    dt_local = tz.localize(datetime.datetime(year, month, day, hour, minute))
+
+    # Most már a 'tz' garantáltan létezik, a hiba megszűnik!
+    dt_local = tz.localize(datetime.datetime(clean_year, clean_month, clean_day, clean_hour, clean_minute))    
     dt_utc = dt_local.astimezone(pytz.utc)
     jd = jd_from_datetime(dt_utc)
-
     # ASC
     asc_lon_sid = get_ascendant(jd, lat, lng)
     asc_sign, asc_deg = get_sign_and_degree(asc_lon_sid)
@@ -308,73 +341,109 @@ def find_yantra_by_tithi(tithi, yantra_folder=None):
         pass
 
     return ""
-def get_varga_chart_data(year: int, month: int, day: int, hour: int, minute: int,
-                         lat: float, lon: float, timezone_offset: float,
-                         varga_label: str = "D1 (Rashi)"):
-    """ 
-    A Swiss Ephemeris adatokból felépített Varga adatszerkezet, 
-    ami kompatibilis a GUI-val és kiküszöböli a hiányzó jyotishganit importokat.
+# modulok/astro_core.py alján cseréld le ezt a részt:
+def get_varga_chart_data(year, month, day, hour, minute, lat, lng, tz_offset, varga_label="D1", name="Ismeretlen"):
     """
-    # Kivonjuk a kódot (pl. "D1 (Rashi)" -> "D1")
-    varga_code = varga_label.split(" ")[0].strip()
+    Kiszámítja a kiválasztott Varga (részhoroszkóp) adatait a D1 alapképletből kiindulva...
+    """
+    chart_base = generate_chart(name, year, month, day, hour, minute, lat, lng)
     
-    # Legeneráljuk az alap D1 képletet a meglévő, stabil függvénnyel
-    chart_base = generate_chart("Ideiglenes", year, month, day, hour, minute, lat, lon)
+    varga_code = "D1"
+    if "(" in varga_label:
+        varga_code = varga_label.split("(")[0].strip()
+    else:
+        varga_code = varga_label.strip()
+            
+    # ÚJ, OKOS KERESÉS: Először megnézzük a teljes varga_labelt a szótárban (pl. "D9 (Navamsha)")
+    # Ha nincs meg, akkor jön a kényszerített matematikai osztás/szorzás faktor
+    factor = varga_factors.get(varga_label, 1)
     
+    if factor == 1 or factor == 15 or factor == 10: # Ha a régi egyedi faktorok jönnének vissza
+        # KÉNYSZERÍTETT ASZTROLÓGIAI OSZTÁSSZÁMOK (D9 = 9 részre osztás, D10 = 10 részre osztás, stb.)
+        # Így a compute_varga függvény pontosan megkapja a felosztási számot
+        if varga_code.upper() == "D9": factor = 9
+        elif varga_code.upper() == "D2": factor = 2
+        elif varga_code.upper() == "D3": factor = 3
+        elif varga_code.upper() == "D4": factor = 4
+        elif varga_code.upper() == "D5": factor = 5
+        elif varga_code.upper() == "D6": factor = 6
+        elif varga_code.upper() == "D7": factor = 7
+        elif varga_code.upper() == "D8": factor = 8
+        elif varga_code.upper() == "D10": factor = 10
+        elif varga_code.upper() == "D11": factor = 11
+        elif varga_code.upper() == "D12": factor = 12
+        elif varga_code.upper() == "D16": factor = 16
+        elif varga_code.upper() == "D20": factor = 20
+        elif varga_code.upper() == "D24": factor = 24
+        elif varga_code.upper() == "D27": factor = 27
+        elif varga_code.upper() == "D30": factor = 30
+        elif varga_code.upper() == "D40": factor = 40
+        elif varga_code.upper() == "D45": factor = 45
+        elif varga_code.upper() == "D60": factor = 60
+
+    print(f"[DEBUG ASTRO_CORE] varga_label='{varga_label}', varga_code={varga_code}, kiszámolt faktor={factor}")
+
     planet_data = {}
-    jegy_sorrend = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", 
-                    "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
-
-    # Átszámoljuk a bolygókat a kért Varga (részhoroszkóp) szerint
-    factor = 1
-    try:
-        factor = int(varga_code.replace("D", ""))
-    except:
-        factor = 1
-
+    
     for pname, pdata in chart_base["planets"].items():
         lon_sid = pdata["lon_sid"]
         
-        # Ha nem D1, akkor a Varga osztás eltolja a pozíciókat
         if factor > 1:
             vsign, vpart = compute_varga(lon_sid, varga_code)
-            jegy_idx = jegy_sorrend.index(vsign)
+            jegy_idx = SIGNS.index(vsign)
             fok_belul = (lon_sid % 30) * factor % 30
         else:
             vsign = pdata["sign"]
-            jegy_idx = jegy_sorrend.index(vsign)
+            jegy_idx = SIGNS.index(vsign)
             fok_belul = pdata["deg"]
-
+            
         planet_data[pname] = {
             "vedic_longitude": float((jegy_idx * 30) + fok_belul),
             "sign": vsign,
+            "deg": float(fok_belul),  # 🔥 EZ HIÁNYZOTT! A chart_drawer a "deg" kulcsot keresi a rajzoláshoz!
             "rasi_deg": float(fok_belul),
             "nakshatra": pdata["nakshatra"],
-            "house": 1, # Ideiglenes alapértelmezett érték
+            "house": 1, 
         }
-
-    # Aszcendens kiszámítása a Vargához
+        
     asc_lon = chart_base["ascendant"]["lon_sid"]
     if factor > 1:
         vsign_asc, _ = compute_varga(asc_lon, varga_code)
-        jegy_idx_asc = jegy_sorrend.index(vsign_asc)
+        jegy_idx_asc = SIGNS.index(vsign_asc)
         fok_asc = (asc_lon % 30) * factor % 30
     else:
         vsign_asc = chart_base["ascendant"]["sign"]
-        jegy_idx_asc = jegy_sorrend.index(vsign_asc)
+        jegy_idx_asc = SIGNS.index(vsign_asc)
         fok_asc = chart_base["ascendant"]["deg"]
-
+        
     planet_data["ASC"] = {
         "vedic_longitude": float((jegy_idx_asc * 30) + fok_asc),
         "sign": vsign_asc,
+        "deg": float(fok_asc),  # 🔥 EZ IS KELL A RAJZOLÓNAK!
         "rasi_deg": float(fok_asc)
     }
+
+    # 🔥 DINAMIKUS TITHI SZÁMÍTÁS JAVÍTÁSA VAGY TITHI ÁTVÉTEL
+    if varga_code == "D1":
+        varga_tithi = str(chart_base["tithi"])
+    else:
+        try:
+            varga_sun_lon = planet_data["Sun"]["vedic_longitude"]
+            varga_moon_lon = planet_data["Moon"]["vedic_longitude"]
+            diff = (varga_moon_lon - varga_sun_lon) % 360
+            calculated_tithi = int(diff // 12) + 1
+            if calculated_tithi > 30: calculated_tithi = 30
+            elif calculated_tithi < 1: calculated_tithi = 1
+            varga_tithi = str(int(calculated_tithi))
+        except Exception:
+            varga_tithi = str(chart_base["tithi"])
 
     return {
         "varga_label": varga_label,
         "varga_code": varga_code,
         "factor": factor,
         "planet_data": planet_data,
-        "tithi": str(chart_base["tithi"]),
+        "ASC": planet_data["ASC"],  
+        "tithi": varga_tithi,
         "nakshatra": planet_data["Moon"]["nakshatra"],
     }

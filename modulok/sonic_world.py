@@ -8,7 +8,7 @@ import soundfile as sf
 import pendulum
 
 from mido import Message, MidiFile, MidiTrack
-
+from modulok.astro_core import generate_chart, TESZT_SZEMELY
 from modulok.tables import (
     nakshatra_data,
     tithi_dynamics,
@@ -18,7 +18,7 @@ from modulok.tables import (
 )
 
 BASE_DIR = Path(__file__).resolve().parent
-OUTPUT_DIR = os.path.expanduser("~/Letöltések/SonicJyotish")
+OUTPUT_DIR = os.path.expanduser("~/Dokumentumok/SonicJyotish")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # --- Celeste minta ---
@@ -308,3 +308,50 @@ def generate_full_audio(chart_data, birth_data, text="", mood="", keywords="", s
         save_midi_score(melody_freqs, mid_path)
 
     return wav_path
+# ==============================================================================
+# ÖNÁLLÓ HANGGENERÁLÁS TESZTELŐ BLOKK
+# ==============================================================================
+if __name__ == "__main__":
+    print("\n🎵 --- SONIC JYOTISH HANGMODUL TESZTELÉS INDÍTÁSA --- 🎵")
+    try:
+        # 1. Beolvassuk a fix tesztszemély adatait az astro_core-ból
+        p = TESZT_SZEMELY
+        print(f"-> Személy: {p['name']} ({p['year']}-{p['month']}-{p['day']} {p['hour']}:{p['minute']})")
+        
+# 2. Legeneráljuk a valódi asztrológiai adatokat az astro_core segítségével
+        print("-> Valódi asztrológiai adatok kiszámítása az astro_core-ral...")
+        
+        chart_data = generate_chart(
+            p["name"],           # 🔥 EZ HIÁNYZOTT! Ez megy a 'name' paraméterbe.
+            int(p["year"]),      # Ez megy a 'year'-be (1947)
+            int(p["month"]),     # Ez megy a 'month'-ba (8)
+            int(p["day"]),       # Ez megy a 'day'-be (15)
+            int(p["hour"]),      # Ez megy a 'hour'-ba (0)
+            int(p["minute"]),    # Ez megy a 'minute'-be (0)
+            float(p["lat"]),     # Ez megy a 'lat'-ba
+            float(p["lng"])      # Ez megy a 'lng'-be
+        )
+        
+        # 3. Átalakítjuk a struktúrát olyan formára, amilyet a generate_full_audio vár
+        # (A funkció 'planet_data'-ként a 'planets'-et, tithi-ként az alap tithit kéri)
+        birth_data = {
+            "name": p["name"],
+            "planets_d1": chart_data["planets"],
+            "tithi_d1": chart_data["tithi"]
+        }
+        
+        # Megnézzük mit számolt ki
+        print(f"   [Kalkulált Tithi sorszám]: {chart_data['tithi']}")
+        print(f"   [Kalkulált Hold-Nakshatra]: {chart_data['planets'].get('Moon', {}).get('nakshatra', 'Ismeretlen')}")
+        
+        # 4. Meghívjuk a fő hanggeneráló függvényt
+        print("-> Hangfájlok (WAV, MIDI) generálásának indítása a háttérben...")
+        output_wav = generate_full_audio(birth_data, chart_data)        
+        print("\n✅ SIKERES TESZT!")
+        print(f"🎵 Generált hangfájl mentve ide: {output_wav}")
+        
+    except Exception as e:
+        print("\n❌ HIBA A HANGGENERÁLÁS KÖZBEN:")
+        import traceback
+        traceback.print_exc()
+    print("🎵 --------------------------------------------------- 🎵\n")

@@ -57,32 +57,56 @@ def find_solar_return_datetime(birth_dt, age, lat, lon):
 
     return best_dt
 
-
-def compute_varshaphala_chart(birth_dt, age, lat, lon):
+def compute_varshaphala_chart(last_chart_data, target_year=None):
     """
-    Visszaadja a Varshaphala horoszkóp teljes adatait
-    astro_core.generate_chart() formátumban.
+    Kibővített, GUI-kompatibilis Varshaphala horoszkóp számítás.
+    A valós születési hely koordinátáit használja Budapest helyett.
     """
+    try:
+        # 1. Kicsomagoljuk a születési dátum és idő adatokat
+        raw_year = int(last_chart_data["raw_year"])
+        raw_month = int(last_chart_data["raw_month"])
+        raw_day = int(last_chart_data["raw_day"])
+        raw_hour = int(last_chart_data.get("raw_hour", 12))
+        raw_min = int(last_chart_data.get("raw_min", 0))
 
-    solar_return_dt = find_solar_return_datetime(birth_dt, age, lat, lon)
-    dt = solar_return_dt.in_timezone("UTC")
+        # 2. 🔥 DINAMIKUS KOORDINÁTÁK: Kikeressük a valódi adatokat, amiket a felhasználó megadott
+        lat = float(last_chart_data.get("lat", 47.4979))
+        lon = float(last_chart_data.get("lng", 19.0402))
 
-    chart = astro_core.generate_chart(
-        name=f"Varshaphala {age}",
-        year=dt.year,
-        month=dt.month,
-        day=dt.day,
-        hour=dt.hour,
-        minute=dt.minute,
-        lat=lat,
-        lng=lon,
-    )
+        # 3. Pendulum születési dátum objektum felépítése
+        birth_dt = pendulum.datetime(raw_year, raw_month, raw_day, raw_hour, raw_min, tz="Europe/Budapest")
 
-    return {
-        "datetime": solar_return_dt,
-        "chart": chart,
-        "planet_data": chart["planets"],
-        "tithi": chart["tithi"],
-        "ascendant": chart["ascendant"],
-        "houses": chart["houses"],
-    }
+        # 4. Életkor (Age) kiszámítása a célév alapján
+        if target_year is None:
+            target_year = pendulum.now().year
+        else:
+            target_year = int(target_year)
+
+        age = target_year - raw_year
+        if age < 0: age = 0
+
+        print(f"[DEBUG VARSHAPHALA] Valós Helyszín -> Lat: {lat}, Lon: {lon}")
+        print(f"[DEBUG VARSHAPHALA] Születési év: {raw_year}, Célév: {target_year} -> Számított életkor: {age} év")
+
+        # 5. Meghívjuk a solar return keresőt a valós koordinátákkal
+        solar_return_dt = find_solar_return_datetime(birth_dt, age, lat, lon)
+        print(f"[DEBUG VARSHAPHALA] Pontos Szolár visszatérés (UTC/Local): {solar_return_dt}")
+
+        # 6. Legeneráljuk a horoszkópot a szolár visszatérési időpontra
+        varsha_chart = astro_core.generate_chart(
+            name=f"Varshaphala - {target_year}",
+            year=solar_return_dt.year,
+            month=solar_return_dt.month,
+            day=solar_return_dt.day,
+            hour=solar_return_dt.hour,
+            minute=solar_return_dt.minute,
+            lat=lat,
+            lng=lon
+        )
+
+        return varsha_chart
+
+    except Exception as e:
+        print(f"❌ Hiba a Varshaphala számításban: {e}")
+        return None

@@ -63,7 +63,7 @@ def redraw_map(canvas, data):
 
     # 2. Nap – Dharma / Életcél
     sun_sign = planets.get("Sun", {}).get("sign", "számítás...")
-    draw_node(dharma_pos[0], dharma_pos[1], "Dharma / Cél", f"Nap: {sun_sign}", border_color="#gold")
+    draw_node(dharma_pos[0], dharma_pos[1], "Dharma / Cél", f"Nap: {sun_sign}", border_color="gold")
 
     # 3. Szaturnusz – Karma / Lecke
     sat_sign = planets.get("Saturn", {}).get("sign", "számítás...")
@@ -76,7 +76,7 @@ def redraw_map(canvas, data):
 
     # 5. Hold / Szív / Kapcsolódás
     moon_sign = planets.get("Moon", {}).get("sign", "számítás...")
-    draw_node(heart_pos[0], heart_pos[1], "Szív / Kapcsolódás", f"Hold: {moon_sign}", border_color="#silver")
+    draw_node(heart_pos[0], heart_pos[1], "Szív / Kapcsolódás", f"Hold: {moon_sign}", border_color="silver")
 
     # Tithi kiírása az ablak aljára
     if data and "tithi_d1" in data:

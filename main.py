@@ -22,4 +22,4 @@ if __name__ == "__main__":
     }
 
     # Most már biztonságosan átadhatók a változók, nem dob NameError-t!
-    start_gui(person_name, birth_data)
+    start_gui()
