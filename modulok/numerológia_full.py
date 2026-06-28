@@ -379,14 +379,6 @@ def main():
 
     draw_svg(name, date, time, name_c, date_c, time_c, name_nums, date_nums, time_nums, svg_path)
     
-    try:
-        cairosvg.svg2pdf(url=svg_path, write_to=pdf_path)
-        print(f"\n✅ Kész! Fájlok elmentve:")
-        print(f"   • {svg_path}")
-        print(f"   • {pdf_path}")
-    except:
-        print(f"\n✅ SVG elkészült: {svg_path}")
-        print("   (PDF konvertáláshoz telepítsd: sudo apt install cairo")
-
+    
 if __name__ == "__main__":
     main()
