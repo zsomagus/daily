@@ -1,7 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from modulok import numerológia_full
+from modulok import numerologia_full
 
 class Numerologia(commands.Cog):
     def __init__(self, bot):
@@ -9,9 +9,9 @@ class Numerologia(commands.Cog):
 
     @app_commands.command(
         name="num",
-        description="Numerológiai elemzés generálása PDF és SVG formátumban"
+        description="Numerológiai elemzés generálása SVG formátumban"
     )
-    @app_commands.describe(
+    @app_commands.describe
         name="Teljes név",
         date="Születési dátum (pl. 1976.03.15)",
         time="Születési idő (pl. 21:53)"
@@ -20,7 +20,7 @@ class Numerologia(commands.Cog):
         await interaction.response.defer(thinking=True)
 
         # Numerológiai fájlok generálása
-        pdf_path, svg_path = numerológia_full.generate(name, date, time)
+        pdf_path, svg_path = numerologia_full.generate(name, date, time)
 
         # Privát üzenet küldése
         try:
